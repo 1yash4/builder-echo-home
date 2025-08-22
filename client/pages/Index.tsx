@@ -1,11 +1,7 @@
-import { useState } from "react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { Textarea } from "@/components/ui/textarea";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Badge } from "@/components/ui/badge";
-import { Progress } from "@/components/ui/progress";
 import {
   BookOpen,
   Brain,
@@ -13,10 +9,6 @@ import {
   MessageCircle,
   Upload,
   Sparkles,
-  Shield,
-  Cog,
-  Cloud,
-  Database,
   ChevronRight,
   GraduationCap,
   FileText,
@@ -25,16 +17,6 @@ import {
 } from "lucide-react";
 
 export default function Index() {
-  const [activeTab, setActiveTab] = useState("summary");
-  const [studyText, setStudyText] = useState("");
-  const [isProcessing, setIsProcessing] = useState(false);
-
-  const handleGenerate = async () => {
-    if (!studyText.trim()) return;
-    setIsProcessing(true);
-    // Simulate processing
-    setTimeout(() => setIsProcessing(false), 2000);
-  };
 
   const features = [
     {
@@ -126,14 +108,14 @@ export default function Index() {
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-16">
               <Button size="lg" className="bg-gradient-to-r from-blue-600 to-indigo-600 text-white px-8 py-4 text-lg" asChild>
-                <a href="#demo">
+                <a href="#features">
                   Start Learning Now
                   <ChevronRight className="ml-2 h-5 w-5" />
                 </a>
               </Button>
               <Button variant="outline" size="lg" className="px-8 py-4 text-lg" asChild>
-                <a href="#demo">
-                  Try Demo
+                <a href="#features">
+                  Explore Features
                 </a>
               </Button>
             </div>
@@ -154,193 +136,6 @@ export default function Index() {
         </div>
       </section>
 
-      {/* Interactive Demo Section */}
-      <section className="py-20 bg-white" id="demo">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-gray-900 mb-4">
-              Try StudyGenie Now
-            </h2>
-            <p className="text-xl text-gray-600">
-              Paste your study material and see the magic happen
-            </p>
-          </div>
-
-          <div className="max-w-4xl mx-auto">
-            <Card className="border-0 shadow-2xl bg-white">
-              <CardContent className="p-8">
-                <Tabs value={activeTab} onValueChange={setActiveTab} className="w-full">
-                  <TabsList className="grid w-full grid-cols-6 mb-8">
-                    <TabsTrigger value="summary" className="flex items-center gap-2">
-                      <FileText className="h-4 w-4" />
-                      Summary
-                    </TabsTrigger>
-                    <TabsTrigger value="quiz" className="flex items-center gap-2">
-                      <Brain className="h-4 w-4" />
-                      Quiz
-                    </TabsTrigger>
-                    <TabsTrigger value="flashcards" className="flex items-center gap-2">
-                      <Lightbulb className="h-4 w-4" />
-                      Flashcards
-                    </TabsTrigger>
-                    <TabsTrigger value="papers" className="flex items-center gap-2">
-                      <BookOpen className="h-4 w-4" />
-                      Papers
-                    </TabsTrigger>
-                    <TabsTrigger value="mentors" className="flex items-center gap-2">
-                      <Users className="h-4 w-4" />
-                      Mentors
-                    </TabsTrigger>
-                    <TabsTrigger value="tutor" className="flex items-center gap-2">
-                      <MessageCircle className="h-4 w-4" />
-                      AI Tutor
-                    </TabsTrigger>
-                  </TabsList>
-
-                  <div className="mb-6">
-                    <label className="block text-sm font-medium text-gray-700 mb-2">
-                      Paste your study material here:
-                    </label>
-                    <Textarea
-                      placeholder="Paste your textbook content, lecture notes, or any study material here..."
-                      value={studyText}
-                      onChange={(e) => setStudyText(e.target.value)}
-                      className="min-h-[120px] text-base"
-                    />
-                  </div>
-
-                  <TabsContent value="summary" className="space-y-4">
-                    <div className="bg-gray-50 rounded-lg p-6">
-                      <h3 className="font-semibold text-gray-900 mb-2">What you'll get:</h3>
-                      <ul className="space-y-1 text-gray-600">
-                        <li>• Concise summary covering main ideas and key concepts</li>
-                        <li>• Easy-to-understand language perfect for high school students</li>
-                        <li>• Structured breakdown of complex topics</li>
-                      </ul>
-                    </div>
-                  </TabsContent>
-
-                  <TabsContent value="quiz" className="space-y-4">
-                    <div className="bg-gray-50 rounded-lg p-6">
-                      <h3 className="font-semibold text-gray-900 mb-2">What you'll get:</h3>
-                      <ul className="space-y-1 text-gray-600">
-                        <li>• 10 multiple-choice questions testing your understanding</li>
-                        <li>• Instant feedback with explanations for wrong answers</li>
-                        <li>• Structured JSON format for easy review</li>
-                      </ul>
-                    </div>
-                  </TabsContent>
-
-                  <TabsContent value="flashcards" className="space-y-4">
-                    <div className="bg-gray-50 rounded-lg p-6">
-                      <h3 className="font-semibold text-gray-900 mb-2">What you'll get:</h3>
-                      <ul className="space-y-1 text-gray-600">
-                        <li>• 15+ key terms and their definitions</li>
-                        <li>• Interactive flip cards for better memorization</li>
-                        <li>• Concise explanations perfect for quick review</li>
-                      </ul>
-                    </div>
-                  </TabsContent>
-
-                  <TabsContent value="papers" className="space-y-4">
-                    <div className="bg-gray-50 rounded-lg p-6">
-                      <h3 className="font-semibold text-gray-900 mb-2">What you'll get:</h3>
-                      <ul className="space-y-1 text-gray-600">
-                        <li>• Thousands of exam questions by subject and class</li>
-                        <li>• Filter by difficulty level, year, and topic</li>
-                        <li>• Practice with real past paper questions</li>
-                      </ul>
-                    </div>
-                  </TabsContent>
-
-                  <TabsContent value="mentors" className="space-y-4">
-                    <div className="bg-gray-50 rounded-lg p-6">
-                      <h3 className="font-semibold text-gray-900 mb-2">What you'll get:</h3>
-                      <ul className="space-y-1 text-gray-600">
-                        <li>• Connect with expert mentors in your subject</li>
-                        <li>• Video calls, voice calls, or chat options</li>
-                        <li>• Get personalized help to solve your doubts</li>
-                      </ul>
-                    </div>
-                  </TabsContent>
-
-                  <TabsContent value="tutor" className="space-y-4">
-                    <div className="bg-gray-50 rounded-lg p-6">
-                      <h3 className="font-semibold text-gray-900 mb-2">What you'll get:</h3>
-                      <ul className="space-y-1 text-gray-600">
-                        <li>• Ask any question about your study material</li>
-                        <li>• Get answers based only on your uploaded content</li>
-                        <li>• Clear explanations from your expert AI tutor</li>
-                      </ul>
-                    </div>
-                  </TabsContent>
-
-                  <div className="flex flex-col sm:flex-row justify-center gap-4 pt-4">
-                    <Button
-                      onClick={handleGenerate}
-                      disabled={!studyText.trim() || isProcessing}
-                      className="bg-gradient-to-r from-blue-600 to-indigo-600 text-white px-8 py-3"
-                    >
-                      {isProcessing ? (
-                        <>
-                          <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-white mr-2"></div>
-                          Processing...
-                        </>
-                      ) : (
-                        <>
-                          Generate {activeTab.charAt(0).toUpperCase() + activeTab.slice(1)}
-                          <Sparkles className="ml-2 h-4 w-4" />
-                        </>
-                      )}
-                    </Button>
-                    {activeTab === 'quiz' && (
-                      <Button variant="outline" asChild>
-                        <Link to="/quiz">
-                          Try Sample Quiz
-                          <Brain className="ml-2 h-4 w-4" />
-                        </Link>
-                      </Button>
-                    )}
-                    {activeTab === 'flashcards' && (
-                      <Button variant="outline" asChild>
-                        <Link to="/flashcards">
-                          Try Sample Flashcards
-                          <Lightbulb className="ml-2 h-4 w-4" />
-                        </Link>
-                      </Button>
-                    )}
-                    {activeTab === 'papers' && (
-                      <Button variant="outline" asChild>
-                        <Link to="/question-papers">
-                          Browse Question Papers
-                          <BookOpen className="ml-2 h-4 w-4" />
-                        </Link>
-                      </Button>
-                    )}
-                    {activeTab === 'mentors' && (
-                      <Button variant="outline" asChild>
-                        <Link to="/mentors">
-                          Find Expert Mentors
-                          <Users className="ml-2 h-4 w-4" />
-                        </Link>
-                      </Button>
-                    )}
-                  </div>
-
-                  {isProcessing && (
-                    <div className="mt-6">
-                      <Progress value={66} className="w-full" />
-                      <p className="text-center text-sm text-gray-600 mt-2">
-                        Analyzing your content with AI...
-                      </p>
-                    </div>
-                  )}
-                </Tabs>
-              </CardContent>
-            </Card>
-          </div>
-        </div>
-      </section>
 
       {/* Features Section */}
       <section className="py-20 bg-gradient-to-br from-gray-50 to-blue-50" id="features">
@@ -355,21 +150,43 @@ export default function Index() {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {features.map((feature, index) => (
-              <Card key={index} className="border-0 shadow-lg hover:shadow-xl transition-shadow duration-300 bg-white">
-                <CardHeader className="text-center pb-4">
-                  <div className="w-16 h-16 bg-gradient-to-br from-blue-600 to-indigo-600 rounded-xl flex items-center justify-center mx-auto mb-4 text-white">
-                    {feature.icon}
-                  </div>
-                  <CardTitle className="text-xl font-bold text-gray-900">{feature.title}</CardTitle>
-                </CardHeader>
-                <CardContent className="pt-0">
-                  <CardDescription className="text-center text-gray-600 leading-relaxed">
-                    {feature.description}
-                  </CardDescription>
-                </CardContent>
-              </Card>
-            ))}
+            {features.map((feature, index) => {
+              const getFeatureLink = (title: string) => {
+                switch (title) {
+                  case "Smart Summaries": return "/summary";
+                  case "Interactive Quizzes": return "/quiz";
+                  case "Digital Flashcards": return "/flashcards";
+                  case "Question Papers": return "/question-papers";
+                  case "Expert Mentors": return "/mentors";
+                  case "AI Tutor": return "/ai-tutor";
+                  default: return "#";
+                }
+              };
+
+              return (
+                <Link key={index} to={getFeatureLink(feature.title)}>
+                  <Card className="border-0 shadow-lg hover:shadow-xl transition-all duration-300 bg-white cursor-pointer transform hover:scale-105">
+                    <CardHeader className="text-center pb-4">
+                      <div className="w-16 h-16 bg-gradient-to-br from-blue-600 to-indigo-600 rounded-xl flex items-center justify-center mx-auto mb-4 text-white">
+                        {feature.icon}
+                      </div>
+                      <CardTitle className="text-xl font-bold text-gray-900">{feature.title}</CardTitle>
+                    </CardHeader>
+                    <CardContent className="pt-0">
+                      <CardDescription className="text-center text-gray-600 leading-relaxed mb-4">
+                        {feature.description}
+                      </CardDescription>
+                      <div className="text-center">
+                        <Button size="sm" className="bg-gradient-to-r from-blue-600 to-indigo-600">
+                          Try Now
+                          <ChevronRight className="ml-2 h-4 w-4" />
+                        </Button>
+                      </div>
+                    </CardContent>
+                  </Card>
+                </Link>
+              );
+            })}
           </div>
         </div>
       </section>
