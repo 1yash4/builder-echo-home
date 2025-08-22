@@ -1,16 +1,17 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Textarea } from "@/components/ui/textarea";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Badge } from "@/components/ui/badge";
 import { Progress } from "@/components/ui/progress";
-import { 
-  BookOpen, 
-  Brain, 
-  Lightbulb, 
-  MessageCircle, 
-  Upload, 
+import {
+  BookOpen,
+  Brain,
+  Lightbulb,
+  MessageCircle,
+  Upload,
   Sparkles,
   Shield,
   Cog,
@@ -114,12 +115,16 @@ export default function Index() {
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-16">
-              <Button size="lg" className="bg-gradient-to-r from-blue-600 to-indigo-600 text-white px-8 py-4 text-lg">
-                Start Learning Now
-                <ChevronRight className="ml-2 h-5 w-5" />
+              <Button size="lg" className="bg-gradient-to-r from-blue-600 to-indigo-600 text-white px-8 py-4 text-lg" asChild>
+                <a href="#demo">
+                  Start Learning Now
+                  <ChevronRight className="ml-2 h-5 w-5" />
+                </a>
               </Button>
-              <Button variant="outline" size="lg" className="px-8 py-4 text-lg">
-                Watch Demo
+              <Button variant="outline" size="lg" className="px-8 py-4 text-lg" asChild>
+                <a href="#demo">
+                  Try Demo
+                </a>
               </Button>
             </div>
 
@@ -230,8 +235,8 @@ export default function Index() {
                     </div>
                   </TabsContent>
 
-                  <div className="flex justify-center pt-4">
-                    <Button 
+                  <div className="flex flex-col sm:flex-row justify-center gap-4 pt-4">
+                    <Button
                       onClick={handleGenerate}
                       disabled={!studyText.trim() || isProcessing}
                       className="bg-gradient-to-r from-blue-600 to-indigo-600 text-white px-8 py-3"
@@ -248,6 +253,22 @@ export default function Index() {
                         </>
                       )}
                     </Button>
+                    {activeTab === 'quiz' && (
+                      <Button variant="outline" asChild>
+                        <Link to="/quiz">
+                          Try Sample Quiz
+                          <Brain className="ml-2 h-4 w-4" />
+                        </Link>
+                      </Button>
+                    )}
+                    {activeTab === 'flashcards' && (
+                      <Button variant="outline" asChild>
+                        <Link to="/flashcards">
+                          Try Sample Flashcards
+                          <Lightbulb className="ml-2 h-4 w-4" />
+                        </Link>
+                      </Button>
+                    )}
                   </div>
 
                   {isProcessing && (
