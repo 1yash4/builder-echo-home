@@ -58,6 +58,11 @@ export default function Index() {
       description: "Browse thousands of exam questions organized by subject, class, and difficulty"
     },
     {
+      icon: <Users className="h-8 w-8" />,
+      title: "Expert Mentors",
+      description: "Connect with experienced mentors via video, voice, or chat to solve your doubts"
+    },
+    {
       icon: <MessageCircle className="h-8 w-8" />,
       title: "AI Tutor",
       description: "Get instant answers to questions based on your uploaded study material"
@@ -165,7 +170,7 @@ export default function Index() {
             <Card className="border-0 shadow-2xl bg-white">
               <CardContent className="p-8">
                 <Tabs value={activeTab} onValueChange={setActiveTab} className="w-full">
-                  <TabsList className="grid w-full grid-cols-5 mb-8">
+                  <TabsList className="grid w-full grid-cols-6 mb-8">
                     <TabsTrigger value="summary" className="flex items-center gap-2">
                       <FileText className="h-4 w-4" />
                       Summary
@@ -181,6 +186,10 @@ export default function Index() {
                     <TabsTrigger value="papers" className="flex items-center gap-2">
                       <BookOpen className="h-4 w-4" />
                       Papers
+                    </TabsTrigger>
+                    <TabsTrigger value="mentors" className="flex items-center gap-2">
+                      <Users className="h-4 w-4" />
+                      Mentors
                     </TabsTrigger>
                     <TabsTrigger value="tutor" className="flex items-center gap-2">
                       <MessageCircle className="h-4 w-4" />
@@ -244,6 +253,17 @@ export default function Index() {
                     </div>
                   </TabsContent>
 
+                  <TabsContent value="mentors" className="space-y-4">
+                    <div className="bg-gray-50 rounded-lg p-6">
+                      <h3 className="font-semibold text-gray-900 mb-2">What you'll get:</h3>
+                      <ul className="space-y-1 text-gray-600">
+                        <li>• Connect with expert mentors in your subject</li>
+                        <li>• Video calls, voice calls, or chat options</li>
+                        <li>• Get personalized help to solve your doubts</li>
+                      </ul>
+                    </div>
+                  </TabsContent>
+
                   <TabsContent value="tutor" className="space-y-4">
                     <div className="bg-gray-50 rounded-lg p-6">
                       <h3 className="font-semibold text-gray-900 mb-2">What you'll get:</h3>
@@ -297,6 +317,14 @@ export default function Index() {
                         </Link>
                       </Button>
                     )}
+                    {activeTab === 'mentors' && (
+                      <Button variant="outline" asChild>
+                        <Link to="/mentors">
+                          Find Expert Mentors
+                          <Users className="ml-2 h-4 w-4" />
+                        </Link>
+                      </Button>
+                    )}
                   </div>
 
                   {isProcessing && (
@@ -326,7 +354,7 @@ export default function Index() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {features.map((feature, index) => (
               <Card key={index} className="border-0 shadow-lg hover:shadow-xl transition-shadow duration-300 bg-white">
                 <CardHeader className="text-center pb-4">
