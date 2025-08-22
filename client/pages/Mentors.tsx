@@ -6,9 +6,9 @@ import { Badge } from "@/components/ui/badge";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
-import { 
-  Home, 
-  Video, 
+import {
+  Home,
+  Video,
   Phone,
   MessageCircle,
   Star,
@@ -22,7 +22,8 @@ import {
   Award,
   BookOpen,
   Heart,
-  PhoneCall
+  PhoneCall,
+  Brain
 } from "lucide-react";
 
 interface Mentor {
