@@ -102,10 +102,51 @@ export default function Flashcards() {
         <div className="text-center mb-8">
           <div className="flex items-center justify-center gap-2 mb-4">
             <Lightbulb className="h-8 w-8 text-blue-600" />
-            <h1 className="text-3xl font-bold text-gray-900">Biology Flashcards</h1>
+            <h1 className="text-3xl font-bold text-gray-900">Digital Flashcards</h1>
           </div>
-          <p className="text-gray-600">Click the card to flip and reveal the definition</p>
+          <p className="text-gray-600 max-w-2xl mx-auto leading-relaxed">
+            Master key concepts with interactive flashcards featuring 3D flip animations.
+            Perfect for memorizing terms, definitions, and important facts from your study material.
+          </p>
         </div>
+
+        {/* Information Section */}
+        <Card className="border-0 shadow-lg bg-white mb-8">
+          <CardContent className="p-8">
+            <h2 className="text-2xl font-bold text-gray-900 text-center mb-6">How Flashcards Help You Learn</h2>
+
+            <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
+              <div className="text-center">
+                <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mx-auto mb-3">
+                  <Lightbulb className="h-6 w-6 text-blue-600" />
+                </div>
+                <h3 className="font-semibold text-gray-900 mb-2">Active Recall</h3>
+                <p className="text-sm text-gray-600">Test yourself to strengthen memory retention</p>
+              </div>
+              <div className="text-center">
+                <div className="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center mx-auto mb-3">
+                  <RotateCcw className="h-6 w-6 text-green-600" />
+                </div>
+                <h3 className="font-semibold text-gray-900 mb-2">Spaced Repetition</h3>
+                <p className="text-sm text-gray-600">Review cards at optimal intervals for long-term retention</p>
+              </div>
+              <div className="text-center">
+                <div className="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center mx-auto mb-3">
+                  <Shuffle className="h-6 w-6 text-purple-600" />
+                </div>
+                <h3 className="font-semibold text-gray-900 mb-2">Random Order</h3>
+                <p className="text-sm text-gray-600">Shuffle cards to avoid pattern memorization</p>
+              </div>
+              <div className="text-center">
+                <div className="w-12 h-12 bg-orange-100 rounded-lg flex items-center justify-center mx-auto mb-3">
+                  <ChevronRight className="h-6 w-6 text-orange-600" />
+                </div>
+                <h3 className="font-semibold text-gray-900 mb-2">Progress Tracking</h3>
+                <p className="text-sm text-gray-600">Monitor your learning progress in real-time</p>
+              </div>
+            </div>
+          </CardContent>
+        </Card>
 
         {/* Progress and Stats */}
         <div className="mb-8">

@@ -229,16 +229,54 @@ export default function QuestionPapers() {
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         {/* Header */}
-        <div className="text-center mb-8">
+        <div className="text-center mb-12">
           <div className="flex items-center justify-center gap-2 mb-4">
             <FileText className="h-8 w-8 text-blue-600" />
-            <h1 className="text-3xl font-bold text-gray-900">Question Papers</h1>
+            <h1 className="text-4xl font-bold text-gray-900">Question Papers</h1>
           </div>
-          <p className="text-gray-600 max-w-2xl mx-auto">
-            Browse through thousands of questions organized by subject, class, and difficulty level. 
-            Perfect for exam preparation and practice.
+          <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+            Access thousands of real exam questions from past papers, organized by subject, class, and difficulty.
+            Perfect for comprehensive exam preparation and testing your knowledge.
           </p>
         </div>
+
+        {/* Information Section */}
+        <Card className="border-0 shadow-lg bg-white mb-8">
+          <CardContent className="p-8">
+            <h2 className="text-2xl font-bold text-gray-900 text-center mb-6">Why Practice with Past Papers?</h2>
+
+            <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
+              <div className="text-center">
+                <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mx-auto mb-3">
+                  <BookOpen className="h-6 w-6 text-blue-600" />
+                </div>
+                <h3 className="font-semibold text-gray-900 mb-2">Real Exam Experience</h3>
+                <p className="text-sm text-gray-600">Practice with actual questions from previous exams</p>
+              </div>
+              <div className="text-center">
+                <div className="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center mx-auto mb-3">
+                  <Clock className="h-6 w-6 text-green-600" />
+                </div>
+                <h3 className="font-semibold text-gray-900 mb-2">Time Management</h3>
+                <p className="text-sm text-gray-600">Learn to manage time effectively during exams</p>
+              </div>
+              <div className="text-center">
+                <div className="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center mx-auto mb-3">
+                  <TrendingUp className="h-6 w-6 text-purple-600" />
+                </div>
+                <h3 className="font-semibold text-gray-900 mb-2">Identify Patterns</h3>
+                <p className="text-sm text-gray-600">Understand question patterns and trending topics</p>
+              </div>
+              <div className="text-center">
+                <div className="w-12 h-12 bg-orange-100 rounded-lg flex items-center justify-center mx-auto mb-3">
+                  <Search className="h-6 w-6 text-orange-600" />
+                </div>
+                <h3 className="font-semibold text-gray-900 mb-2">Targeted Practice</h3>
+                <p className="text-sm text-gray-600">Focus on specific subjects and difficulty levels</p>
+              </div>
+            </div>
+          </CardContent>
+        </Card>
 
         {/* Filters */}
         <Card className="mb-8 border-0 shadow-lg bg-white">
