@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
+import { useUser } from "@/contexts/UserContext";
 import {
   BookOpen,
   Brain,
@@ -13,10 +14,13 @@ import {
   GraduationCap,
   FileText,
   Users,
-  Trophy
+  Trophy,
+  LogOut,
+  User
 } from "lucide-react";
 
 export default function Index() {
+  const { user, isAuthenticated, logout } = useUser();
 
   const features = [
     {
@@ -72,12 +76,37 @@ export default function Index() {
                 StudyGenie
               </span>
             </div>
-            <div className="hidden md:flex space-x-8">
+            <div className="hidden md:flex items-center space-x-6">
               <a href="#features" className="text-gray-600 hover:text-blue-600 transition-colors">Features</a>
               <a href="#how-it-works" className="text-gray-600 hover:text-blue-600 transition-colors">How it Works</a>
-              <Button variant="default" className="bg-gradient-to-r from-blue-600 to-indigo-600">
-                Get Started
-              </Button>
+              {isAuthenticated ? (
+                <div className="flex items-center space-x-4">
+                  <div className="flex items-center space-x-2">
+                    <User className="h-4 w-4 text-gray-600" />
+                    <span className="text-sm text-gray-700">
+                      {user?.firstName} {user?.lastName}
+                    </span>
+                    <Badge variant="outline" className="text-xs">
+                      {user?.standard}
+                    </Badge>
+                  </div>
+                  <Button
+                    variant="outline"
+                    size="sm"
+                    onClick={logout}
+                    className="flex items-center gap-2"
+                  >
+                    <LogOut className="h-4 w-4" />
+                    Logout
+                  </Button>
+                </div>
+              ) : (
+                <Button variant="default" className="bg-gradient-to-r from-blue-600 to-indigo-600" asChild>
+                  <Link to="/login">
+                    Get Started
+                  </Link>
+                </Button>
+              )}
             </div>
           </div>
         </div>

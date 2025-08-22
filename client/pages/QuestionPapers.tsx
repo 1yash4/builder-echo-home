@@ -1,20 +1,22 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { 
-  Home, 
-  FileText, 
+import { useUser } from "@/contexts/UserContext";
+import {
+  Home,
+  FileText,
   Filter,
   BookOpen,
   GraduationCap,
   Clock,
   TrendingUp,
   ChevronRight,
-  Search
+  Search,
+  User
 } from "lucide-react";
 
 interface QuestionData {
@@ -155,11 +157,19 @@ const questionDatabase: QuestionData[] = [
 ];
 
 export default function QuestionPapers() {
+  const { user, isAuthenticated } = useUser();
   const [selectedSubject, setSelectedSubject] = useState<string>("");
   const [selectedStandard, setSelectedStandard] = useState<string>("");
   const [selectedDifficulty, setSelectedDifficulty] = useState<string>("");
   const [selectedYear, setSelectedYear] = useState<string>("");
   const [showAnswers, setShowAnswers] = useState<Set<number>>(new Set());
+
+  // Automatically set user's standard when logged in
+  useEffect(() => {
+    if (isAuthenticated && user?.standard) {
+      setSelectedStandard(user.standard);
+    }
+  }, [isAuthenticated, user]);
 
   // Extract unique values for filters
   const subjects = [...new Set(questionDatabase.map(q => q.subject))].sort();
@@ -219,10 +229,19 @@ export default function QuestionPapers() {
                 StudyGenie
               </span>
             </Link>
-            <Link to="/" className="inline-flex items-center text-blue-600 hover:text-blue-700">
-              <Home className="h-4 w-4 mr-2" />
-              Back to Home
-            </Link>
+            <div className="flex items-center space-x-4">
+              <Link to="/" className="inline-flex items-center text-blue-600 hover:text-blue-700">
+                <Home className="h-4 w-4 mr-2" />
+                Back to Home
+              </Link>
+              {isAuthenticated && (
+                <div className="flex items-center space-x-2 text-sm text-gray-600">
+                  <User className="h-4 w-4" />
+                  <span>{user?.firstName}</span>
+                  <Badge variant="outline">{user?.standard}</Badge>
+                </div>
+              )}
+            </div>
           </div>
         </div>
       </nav>
@@ -306,7 +325,12 @@ export default function QuestionPapers() {
               </div>
 
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">Class/Standard</label>
+                <label className="block text-sm font-medium text-gray-700 mb-2">
+                  Class/Standard
+                  {isAuthenticated && user?.standard && (
+                    <span className="text-xs text-green-600 ml-2">(Auto-selected from your profile)</span>
+                  )}
+                </label>
                 <Select value={selectedStandard} onValueChange={setSelectedStandard}>
                   <SelectTrigger>
                     <SelectValue placeholder="Select class" />
