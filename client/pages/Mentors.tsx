@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
@@ -6,6 +6,7 @@ import { Badge } from "@/components/ui/badge";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
+import { useUser } from "@/contexts/UserContext";
 import {
   Home,
   Video,
@@ -23,7 +24,8 @@ import {
   BookOpen,
   Heart,
   PhoneCall,
-  Brain
+  Brain,
+  User
 } from "lucide-react";
 
 interface Mentor {
@@ -143,10 +145,18 @@ const mentors: Mentor[] = [
 ];
 
 export default function Mentors() {
+  const { user, isAuthenticated } = useUser();
   const [selectedSubject, setSelectedSubject] = useState<string>("");
   const [selectedMentor, setSelectedMentor] = useState<Mentor | null>(null);
   const [connectionType, setConnectionType] = useState<"video" | "voice" | "chat" | null>(null);
   const [searchTerm, setSearchTerm] = useState("");
+
+  // Auto-select user's first subject when logged in
+  useEffect(() => {
+    if (isAuthenticated && user?.subjects && user.subjects.length > 0 && !selectedSubject) {
+      setSelectedSubject(user.subjects[0]);
+    }
+  }, [isAuthenticated, user, selectedSubject]);
 
   // Extract unique subjects for filtering
   const subjects = [...new Set(mentors.flatMap(m => m.subjects))].sort();
@@ -297,10 +307,22 @@ export default function Mentors() {
                 StudyGenie
               </span>
             </Link>
-            <Link to="/" className="inline-flex items-center text-blue-600 hover:text-blue-700">
-              <Home className="h-4 w-4 mr-2" />
-              Back to Home
-            </Link>
+            <div className="flex items-center space-x-4">
+              <Link to="/" className="inline-flex items-center text-blue-600 hover:text-blue-700">
+                <Home className="h-4 w-4 mr-2" />
+                Back to Home
+              </Link>
+              {isAuthenticated && (
+                <div className="flex items-center space-x-2 text-sm text-gray-600">
+                  <User className="h-4 w-4" />
+                  <span>{user?.firstName}</span>
+                  <Badge variant="outline">{user?.standard}</Badge>
+                  {user?.subjects && user.subjects.length > 0 && (
+                    <Badge variant="secondary">{user.subjects.length} subjects</Badge>
+                  )}
+                </div>
+              )}
+            </div>
           </div>
         </div>
       </nav>
@@ -364,18 +386,41 @@ export default function Mentors() {
               Find Your Perfect Mentor
             </CardTitle>
             <CardDescription>
-              Filter by subject or search by name to find the right mentor for you
+              {isAuthenticated && user?.subjects && user.subjects.length > 0
+                ? `Showing mentors for your subjects: ${user.subjects.join(", ")}`
+                : "Filter by subject or search by name to find the right mentor for you"
+              }
             </CardDescription>
           </CardHeader>
           <CardContent>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">Subject</label>
+                <label className="block text-sm font-medium text-gray-700 mb-2">
+                  Subject
+                  {isAuthenticated && user?.subjects && selectedSubject && user.subjects.includes(selectedSubject) && (
+                    <span className="text-xs text-green-600 ml-2">(From your profile)</span>
+                  )}
+                </label>
                 <Select value={selectedSubject} onValueChange={setSelectedSubject}>
                   <SelectTrigger>
                     <SelectValue placeholder="All subjects" />
                   </SelectTrigger>
                   <SelectContent>
+                    {/* Show user's subjects first if logged in */}
+                    {isAuthenticated && user?.subjects && user.subjects.length > 0 && (
+                      <>
+                        <div className="px-2 py-1 text-xs font-semibold text-gray-500 border-b">Your Subjects</div>
+                        {user.subjects.map(subject => (
+                          <SelectItem key={`user-${subject}`} value={subject}>
+                            <div className="flex items-center gap-2">
+                              {subject}
+                              <Badge variant="secondary" className="text-xs">Your subject</Badge>
+                            </div>
+                          </SelectItem>
+                        ))}
+                        <div className="px-2 py-1 text-xs font-semibold text-gray-500 border-b">All Subjects</div>
+                      </>
+                    )}
                     {subjects.map(subject => (
                       <SelectItem key={subject} value={subject}>{subject}</SelectItem>
                     ))}
@@ -409,6 +454,37 @@ export default function Mentors() {
             </div>
           </CardContent>
         </Card>
+
+        {/* User Profile Recommendations */}
+        {isAuthenticated && user?.subjects && user.subjects.length > 0 && (
+          <Card className="mb-8 border-0 shadow-lg bg-gradient-to-r from-blue-50 to-indigo-50">
+            <CardContent className="p-6">
+              <h3 className="text-lg font-semibold text-gray-900 mb-3 flex items-center gap-2">
+                <User className="h-5 w-5" />
+                Recommended for {user.firstName}
+              </h3>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm">
+                <div>
+                  <span className="text-gray-600">Your Standard:</span>
+                  <div className="font-medium">{user.standard}</div>
+                </div>
+                <div>
+                  <span className="text-gray-600">Your Subjects:</span>
+                  <div className="flex flex-wrap gap-1 mt-1">
+                    {user.subjects.map(subject => (
+                      <Badge key={subject} variant="secondary" className="text-xs">
+                        {subject}
+                      </Badge>
+                    ))}
+                  </div>
+                </div>
+              </div>
+              <p className="text-sm text-gray-600 mt-3">
+                We've pre-selected mentors who specialize in your subjects. You can explore other subjects too!
+              </p>
+            </CardContent>
+          </Card>
+        )}
 
         {/* Mentors Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">

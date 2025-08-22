@@ -81,15 +81,15 @@ export default function Index() {
               <a href="#how-it-works" className="text-gray-600 hover:text-blue-600 transition-colors">How it Works</a>
               {isAuthenticated ? (
                 <div className="flex items-center space-x-4">
-                  <div className="flex items-center space-x-2">
-                    <User className="h-4 w-4 text-gray-600" />
-                    <span className="text-sm text-gray-700">
+                  <Link to="/profile" className="flex items-center space-x-2 text-gray-700 hover:text-blue-600 transition-colors">
+                    <User className="h-4 w-4" />
+                    <span className="text-sm">
                       {user?.firstName} {user?.lastName}
                     </span>
                     <Badge variant="outline" className="text-xs">
                       {user?.standard}
                     </Badge>
-                  </div>
+                  </Link>
                   <Button
                     variant="outline"
                     size="sm"

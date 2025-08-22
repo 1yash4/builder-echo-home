@@ -16,6 +16,7 @@ import QuestionPapers from "./pages/QuestionPapers";
 import Mentors from "./pages/Mentors";
 import AITutor from "./pages/AITutor";
 import Login from "./pages/Login";
+import Profile from "./pages/Profile";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -29,6 +30,7 @@ function App() {
             <Routes>
               <Route path="/" element={<Index />} />
               <Route path="/login" element={<Login />} />
+              <Route path="/profile" element={<Profile />} />
               <Route path="/summary" element={<Summary />} />
               <Route path="/quiz" element={<Quiz />} />
               <Route path="/flashcards" element={<Flashcards />} />
