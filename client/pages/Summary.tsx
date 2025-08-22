@@ -1,13 +1,19 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
 import { Textarea } from "@/components/ui/textarea";
 import { Badge } from "@/components/ui/badge";
 import { Progress } from "@/components/ui/progress";
-import { 
-  Home, 
-  FileText, 
+import {
+  Home,
+  FileText,
   Sparkles,
   GraduationCap,
   BookOpen,
@@ -18,7 +24,7 @@ import {
   Upload,
   Download,
   Copy,
-  Share2
+  Share2,
 } from "lucide-react";
 
 export default function Summary() {
@@ -43,14 +49,14 @@ export default function Summary() {
 
   const handleGenerate = async () => {
     if (!inputText.trim()) return;
-    
+
     setIsGenerating(true);
     setProgress(0);
     setSummary("");
 
     // Simulate AI processing
     const interval = setInterval(() => {
-      setProgress(prev => {
+      setProgress((prev) => {
         if (prev >= 100) {
           clearInterval(interval);
           setIsGenerating(false);
@@ -74,23 +80,27 @@ export default function Summary() {
     {
       icon: <Clock className="h-6 w-6" />,
       title: "Save Time",
-      description: "Convert hours of reading into minutes of focused understanding"
+      description:
+        "Convert hours of reading into minutes of focused understanding",
     },
     {
       icon: <Target className="h-6 w-6" />,
       title: "Key Concepts",
-      description: "Automatically identifies and highlights the most important information"
+      description:
+        "Automatically identifies and highlights the most important information",
     },
     {
       icon: <Brain className="h-6 w-6" />,
       title: "Better Retention",
-      description: "Structured summaries improve comprehension and memory retention"
+      description:
+        "Structured summaries improve comprehension and memory retention",
     },
     {
       icon: <BookOpen className="h-6 w-6" />,
       title: "Any Subject",
-      description: "Works with textbooks, lecture notes, research papers, and more"
-    }
+      description:
+        "Works with textbooks, lecture notes, research papers, and more",
+    },
   ];
 
   const features = [
@@ -99,7 +109,7 @@ export default function Summary() {
     "Key concepts and main ideas highlighted",
     "Perfect for high school and college students",
     "Instant generation from any text input",
-    "Copy and share functionality"
+    "Copy and share functionality",
   ];
 
   return (
@@ -116,7 +126,10 @@ export default function Summary() {
                 StudyGenie
               </span>
             </Link>
-            <Link to="/" className="inline-flex items-center text-blue-600 hover:text-blue-700">
+            <Link
+              to="/"
+              className="inline-flex items-center text-blue-600 hover:text-blue-700"
+            >
               <Home className="h-4 w-4 mr-2" />
               Back to Home
             </Link>
@@ -129,23 +142,31 @@ export default function Summary() {
         <div className="text-center mb-12">
           <div className="flex items-center justify-center gap-2 mb-4">
             <FileText className="h-8 w-8 text-blue-600" />
-            <h1 className="text-4xl font-bold text-gray-900">Smart Summaries</h1>
+            <h1 className="text-4xl font-bold text-gray-900">
+              Smart Summaries
+            </h1>
           </div>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-            Transform lengthy study materials into concise, easy-to-understand summaries. 
-            Our AI identifies key concepts and presents them in a structured format perfect for quick review.
+            Transform lengthy study materials into concise, easy-to-understand
+            summaries. Our AI identifies key concepts and presents them in a
+            structured format perfect for quick review.
           </p>
         </div>
 
         {/* Benefits Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
           {benefits.map((benefit, index) => (
-            <Card key={index} className="border-0 shadow-lg bg-white text-center">
+            <Card
+              key={index}
+              className="border-0 shadow-lg bg-white text-center"
+            >
               <CardContent className="p-6">
                 <div className="w-12 h-12 bg-gradient-to-br from-blue-600 to-indigo-600 rounded-lg flex items-center justify-center mx-auto mb-4 text-white">
                   {benefit.icon}
                 </div>
-                <h3 className="font-semibold text-gray-900 mb-2">{benefit.title}</h3>
+                <h3 className="font-semibold text-gray-900 mb-2">
+                  {benefit.title}
+                </h3>
                 <p className="text-sm text-gray-600">{benefit.description}</p>
               </CardContent>
             </Card>
@@ -162,7 +183,8 @@ export default function Summary() {
                 Input Your Study Material
               </CardTitle>
               <CardDescription>
-                Paste your textbook content, lecture notes, or any study material below
+                Paste your textbook content, lecture notes, or any study
+                material below
               </CardDescription>
             </CardHeader>
             <CardContent className="space-y-4">
@@ -172,9 +194,9 @@ export default function Summary() {
                 onChange={(e) => setInputText(e.target.value)}
                 className="min-h-[300px] text-base"
               />
-              
+
               <div className="flex gap-3">
-                <Button 
+                <Button
                   onClick={handleGenerate}
                   disabled={!inputText.trim() || isGenerating}
                   className="bg-gradient-to-r from-blue-600 to-indigo-600 flex-1"
@@ -227,7 +249,11 @@ export default function Summary() {
                     </div>
                   </div>
                   <div className="flex gap-2">
-                    <Button variant="outline" onClick={handleCopy} className="flex-1">
+                    <Button
+                      variant="outline"
+                      onClick={handleCopy}
+                      className="flex-1"
+                    >
                       <Copy className="h-4 w-4 mr-2" />
                       Copy
                     </Button>
@@ -246,7 +272,10 @@ export default function Summary() {
                   <div className="text-center text-gray-500">
                     <FileText className="h-12 w-12 mx-auto mb-4 opacity-50" />
                     <p className="text-lg mb-2">No summary generated yet</p>
-                    <p className="text-sm">Paste your content and click "Generate Summary" to get started</p>
+                    <p className="text-sm">
+                      Paste your content and click "Generate Summary" to get
+                      started
+                    </p>
                   </div>
                 </div>
               )}
@@ -257,7 +286,9 @@ export default function Summary() {
         {/* Features List */}
         <Card className="border-0 shadow-lg bg-white mb-12">
           <CardHeader>
-            <CardTitle className="text-2xl text-center">What Makes Our Summaries Special?</CardTitle>
+            <CardTitle className="text-2xl text-center">
+              What Makes Our Summaries Special?
+            </CardTitle>
           </CardHeader>
           <CardContent>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -274,28 +305,41 @@ export default function Summary() {
         {/* How It Works */}
         <Card className="border-0 shadow-lg bg-gradient-to-r from-blue-600 to-indigo-600 text-white">
           <CardContent className="p-8">
-            <h2 className="text-2xl font-bold text-center mb-8">How Smart Summaries Work</h2>
+            <h2 className="text-2xl font-bold text-center mb-8">
+              How Smart Summaries Work
+            </h2>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
               <div className="text-center">
                 <div className="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-4">
                   <span className="text-2xl font-bold">1</span>
                 </div>
                 <h3 className="text-lg font-semibold mb-2">Analyze Content</h3>
-                <p className="text-blue-100">AI reads and understands your study material, identifying key concepts and relationships</p>
+                <p className="text-blue-100">
+                  AI reads and understands your study material, identifying key
+                  concepts and relationships
+                </p>
               </div>
               <div className="text-center">
                 <div className="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-4">
                   <span className="text-2xl font-bold">2</span>
                 </div>
-                <h3 className="text-lg font-semibold mb-2">Extract Key Points</h3>
-                <p className="text-blue-100">Important information is identified and organized into logical sections</p>
+                <h3 className="text-lg font-semibold mb-2">
+                  Extract Key Points
+                </h3>
+                <p className="text-blue-100">
+                  Important information is identified and organized into logical
+                  sections
+                </p>
               </div>
               <div className="text-center">
                 <div className="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-4">
                   <span className="text-2xl font-bold">3</span>
                 </div>
                 <h3 className="text-lg font-semibold mb-2">Generate Summary</h3>
-                <p className="text-blue-100">Creates a concise, well-structured summary perfect for studying and review</p>
+                <p className="text-blue-100">
+                  Creates a concise, well-structured summary perfect for
+                  studying and review
+                </p>
               </div>
             </div>
           </CardContent>

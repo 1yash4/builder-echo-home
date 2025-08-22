@@ -1,15 +1,27 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
 import { Checkbox } from "@/components/ui/checkbox";
 import { Textarea } from "@/components/ui/textarea";
 import { Badge } from "@/components/ui/badge";
 import { useUser, UserProfile } from "@/contexts/UserContext";
-import { 
+import {
   GraduationCap,
   User,
   Mail,
@@ -21,7 +33,7 @@ import {
   BookOpen,
   ChevronRight,
   UserPlus,
-  LogIn
+  LogIn,
 } from "lucide-react";
 
 export default function Login() {
@@ -47,46 +59,75 @@ export default function Login() {
   });
 
   const standards = [
-    "6th Grade", "7th Grade", "8th Grade", "9th Grade", "10th Grade",
-    "11th Grade", "12th Grade", "University 1st Year", "University 2nd Year", 
-    "University 3rd Year", "University 4th Year", "Graduate", "Professional"
+    "6th Grade",
+    "7th Grade",
+    "8th Grade",
+    "9th Grade",
+    "10th Grade",
+    "11th Grade",
+    "12th Grade",
+    "University 1st Year",
+    "University 2nd Year",
+    "University 3rd Year",
+    "University 4th Year",
+    "Graduate",
+    "Professional",
   ];
 
   const availableSubjects = [
-    "Mathematics", "Physics", "Chemistry", "Biology", "Science",
-    "English", "Hindi", "Computer Science", "History", "Geography",
-    "Economics", "Political Science", "Psychology", "Literature",
-    "Engineering", "Medicine", "Business Studies", "Accounting"
+    "Mathematics",
+    "Physics",
+    "Chemistry",
+    "Biology",
+    "Science",
+    "English",
+    "Hindi",
+    "Computer Science",
+    "History",
+    "Geography",
+    "Economics",
+    "Political Science",
+    "Psychology",
+    "Literature",
+    "Engineering",
+    "Medicine",
+    "Business Studies",
+    "Accounting",
   ];
 
   const learningGoalOptions = [
-    "Improve grades", "Exam preparation", "Concept understanding",
-    "Homework help", "Competitive exams", "Skill development",
-    "Career preparation", "Personal growth"
+    "Improve grades",
+    "Exam preparation",
+    "Concept understanding",
+    "Homework help",
+    "Competitive exams",
+    "Skill development",
+    "Career preparation",
+    "Personal growth",
   ];
 
   const handleInputChange = (field: string, value: string) => {
-    setFormData(prev => ({
+    setFormData((prev) => ({
       ...prev,
-      [field]: value
+      [field]: value,
     }));
   };
 
   const handleSubjectToggle = (subject: string) => {
-    setFormData(prev => ({
+    setFormData((prev) => ({
       ...prev,
       subjects: prev.subjects.includes(subject)
-        ? prev.subjects.filter(s => s !== subject)
-        : [...prev.subjects, subject]
+        ? prev.subjects.filter((s) => s !== subject)
+        : [...prev.subjects, subject],
     }));
   };
 
   const handleGoalToggle = (goal: string) => {
-    setFormData(prev => ({
+    setFormData((prev) => ({
       ...prev,
       learningGoals: prev.learningGoals.includes(goal)
-        ? prev.learningGoals.filter(g => g !== goal)
-        : [...prev.learningGoals, goal]
+        ? prev.learningGoals.filter((g) => g !== goal)
+        : [...prev.learningGoals, goal],
     }));
   };
 
@@ -96,7 +137,7 @@ export default function Login() {
 
     try {
       // Simulate API call
-      await new Promise(resolve => setTimeout(resolve, 1500));
+      await new Promise((resolve) => setTimeout(resolve, 1500));
 
       const userData: UserProfile = {
         id: Date.now().toString(),
@@ -116,9 +157,9 @@ export default function Login() {
       };
 
       login(userData);
-      navigate('/');
+      navigate("/");
     } catch (error) {
-      console.error('Login error:', error);
+      console.error("Login error:", error);
     } finally {
       setIsLoading(false);
     }
@@ -141,7 +182,7 @@ export default function Login() {
     };
 
     login(demoUser);
-    navigate('/');
+    navigate("/");
   };
 
   return (
@@ -171,10 +212,9 @@ export default function Login() {
             {isSignUp ? "Join StudyGenie" : "Welcome Back"}
           </h1>
           <p className="text-xl text-gray-600">
-            {isSignUp 
+            {isSignUp
               ? "Create your personalized learning profile"
-              : "Sign in to continue your learning journey"
-            }
+              : "Sign in to continue your learning journey"}
           </p>
         </div>
 
@@ -184,13 +224,12 @@ export default function Login() {
               {isSignUp ? "Create Your Profile" : "Sign In"}
             </CardTitle>
             <CardDescription>
-              {isSignUp 
+              {isSignUp
                 ? "Tell us about yourself to personalize your learning experience"
-                : "Access your personalized learning dashboard"
-              }
+                : "Access your personalized learning dashboard"}
             </CardDescription>
           </CardHeader>
-          
+
           <CardContent className="space-y-6">
             {!isSignUp ? (
               // Simple sign-in form
@@ -215,8 +254,8 @@ export default function Login() {
                     required
                   />
                 </div>
-                <Button 
-                  type="submit" 
+                <Button
+                  type="submit"
                   className="w-full bg-gradient-to-r from-blue-600 to-indigo-600"
                   disabled={isLoading}
                 >
@@ -249,7 +288,9 @@ export default function Login() {
                         id="firstName"
                         placeholder="Enter your first name"
                         value={formData.firstName}
-                        onChange={(e) => handleInputChange("firstName", e.target.value)}
+                        onChange={(e) =>
+                          handleInputChange("firstName", e.target.value)
+                        }
                         required
                       />
                     </div>
@@ -259,7 +300,9 @@ export default function Login() {
                         id="lastName"
                         placeholder="Enter your last name"
                         value={formData.lastName}
-                        onChange={(e) => handleInputChange("lastName", e.target.value)}
+                        onChange={(e) =>
+                          handleInputChange("lastName", e.target.value)
+                        }
                         required
                       />
                     </div>
@@ -270,7 +313,9 @@ export default function Login() {
                         type="email"
                         placeholder="Enter your email"
                         value={formData.email}
-                        onChange={(e) => handleInputChange("email", e.target.value)}
+                        onChange={(e) =>
+                          handleInputChange("email", e.target.value)
+                        }
                         required
                       />
                     </div>
@@ -281,7 +326,9 @@ export default function Login() {
                         type="tel"
                         placeholder="Enter your phone number"
                         value={formData.phone}
-                        onChange={(e) => handleInputChange("phone", e.target.value)}
+                        onChange={(e) =>
+                          handleInputChange("phone", e.target.value)
+                        }
                         required
                       />
                     </div>
@@ -291,22 +338,26 @@ export default function Login() {
                         id="dateOfBirth"
                         type="date"
                         value={formData.dateOfBirth}
-                        onChange={(e) => handleInputChange("dateOfBirth", e.target.value)}
+                        onChange={(e) =>
+                          handleInputChange("dateOfBirth", e.target.value)
+                        }
                         required
                       />
                     </div>
                     <div className="space-y-2">
                       <Label htmlFor="standard">Class/Standard</Label>
-                      <Select 
-                        value={formData.standard} 
-                        onValueChange={(value) => handleInputChange("standard", value)}
+                      <Select
+                        value={formData.standard}
+                        onValueChange={(value) =>
+                          handleInputChange("standard", value)
+                        }
                         required
                       >
                         <SelectTrigger>
                           <SelectValue placeholder="Select your class" />
                         </SelectTrigger>
                         <SelectContent>
-                          {standards.map(standard => (
+                          {standards.map((standard) => (
                             <SelectItem key={standard} value={standard}>
                               {standard}
                             </SelectItem>
@@ -330,7 +381,9 @@ export default function Login() {
                         id="school"
                         placeholder="Enter your school name"
                         value={formData.school}
-                        onChange={(e) => handleInputChange("school", e.target.value)}
+                        onChange={(e) =>
+                          handleInputChange("school", e.target.value)
+                        }
                         required
                       />
                     </div>
@@ -340,7 +393,9 @@ export default function Login() {
                         id="city"
                         placeholder="Enter your city"
                         value={formData.city}
-                        onChange={(e) => handleInputChange("city", e.target.value)}
+                        onChange={(e) =>
+                          handleInputChange("city", e.target.value)
+                        }
                         required
                       />
                     </div>
@@ -349,8 +404,11 @@ export default function Login() {
                   <div className="space-y-2">
                     <Label>Subjects you're studying</Label>
                     <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3">
-                      {availableSubjects.map(subject => (
-                        <div key={subject} className="flex items-center space-x-2">
+                      {availableSubjects.map((subject) => (
+                        <div
+                          key={subject}
+                          className="flex items-center space-x-2"
+                        >
                           <Checkbox
                             id={subject}
                             checked={formData.subjects.includes(subject)}
@@ -364,7 +422,7 @@ export default function Login() {
                     </div>
                     {formData.subjects.length > 0 && (
                       <div className="flex flex-wrap gap-2 mt-2">
-                        {formData.subjects.map(subject => (
+                        {formData.subjects.map((subject) => (
                           <Badge key={subject} variant="secondary">
                             {subject}
                           </Badge>
@@ -381,7 +439,7 @@ export default function Login() {
                     Learning Goals
                   </h3>
                   <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
-                    {learningGoalOptions.map(goal => (
+                    {learningGoalOptions.map((goal) => (
                       <div key={goal} className="flex items-center space-x-2">
                         <Checkbox
                           id={goal}
@@ -410,7 +468,9 @@ export default function Login() {
                         type="email"
                         placeholder="Parent's email address"
                         value={formData.parentEmail}
-                        onChange={(e) => handleInputChange("parentEmail", e.target.value)}
+                        onChange={(e) =>
+                          handleInputChange("parentEmail", e.target.value)
+                        }
                       />
                     </div>
                     <div className="space-y-2">
@@ -420,16 +480,23 @@ export default function Login() {
                         type="tel"
                         placeholder="Parent's phone number"
                         value={formData.parentPhone}
-                        onChange={(e) => handleInputChange("parentPhone", e.target.value)}
+                        onChange={(e) =>
+                          handleInputChange("parentPhone", e.target.value)
+                        }
                       />
                     </div>
                   </div>
                 </div>
 
-                <Button 
-                  type="submit" 
+                <Button
+                  type="submit"
                   className="w-full bg-gradient-to-r from-blue-600 to-indigo-600"
-                  disabled={isLoading || !formData.firstName || !formData.email || !formData.standard}
+                  disabled={
+                    isLoading ||
+                    !formData.firstName ||
+                    !formData.email ||
+                    !formData.standard
+                  }
                 >
                   {isLoading ? (
                     <>
@@ -448,18 +515,20 @@ export default function Login() {
 
             <div className="space-y-4">
               <div className="text-center">
-                <Button 
-                  variant="outline" 
+                <Button
+                  variant="outline"
                   onClick={() => setIsSignUp(!isSignUp)}
                   className="w-full"
                 >
-                  {isSignUp ? "Already have an account? Sign In" : "New to StudyGenie? Create Account"}
+                  {isSignUp
+                    ? "Already have an account? Sign In"
+                    : "New to StudyGenie? Create Account"}
                 </Button>
               </div>
 
               <div className="text-center">
-                <Button 
-                  variant="ghost" 
+                <Button
+                  variant="ghost"
                   onClick={handleLoginDemo}
                   className="w-full text-blue-600 hover:bg-blue-50"
                 >

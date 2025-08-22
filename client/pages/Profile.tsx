@@ -1,14 +1,26 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
 import { Checkbox } from "@/components/ui/checkbox";
 import { Badge } from "@/components/ui/badge";
 import { useUser } from "@/contexts/UserContext";
-import { 
+import {
   Home,
   User,
   Edit,
@@ -21,7 +33,7 @@ import {
   Calendar,
   School,
   MapPin,
-  Target
+  Target,
 } from "lucide-react";
 
 export default function Profile() {
@@ -32,7 +44,7 @@ export default function Profile() {
 
   // Redirect if not authenticated
   if (!isAuthenticated || !user) {
-    navigate('/login');
+    navigate("/login");
     return null;
   }
 
@@ -53,46 +65,75 @@ export default function Profile() {
   });
 
   const standards = [
-    "6th Grade", "7th Grade", "8th Grade", "9th Grade", "10th Grade",
-    "11th Grade", "12th Grade", "University 1st Year", "University 2nd Year", 
-    "University 3rd Year", "University 4th Year", "Graduate", "Professional"
+    "6th Grade",
+    "7th Grade",
+    "8th Grade",
+    "9th Grade",
+    "10th Grade",
+    "11th Grade",
+    "12th Grade",
+    "University 1st Year",
+    "University 2nd Year",
+    "University 3rd Year",
+    "University 4th Year",
+    "Graduate",
+    "Professional",
   ];
 
   const availableSubjects = [
-    "Mathematics", "Physics", "Chemistry", "Biology", "Science",
-    "English", "Hindi", "Computer Science", "History", "Geography",
-    "Economics", "Political Science", "Psychology", "Literature",
-    "Engineering", "Medicine", "Business Studies", "Accounting"
+    "Mathematics",
+    "Physics",
+    "Chemistry",
+    "Biology",
+    "Science",
+    "English",
+    "Hindi",
+    "Computer Science",
+    "History",
+    "Geography",
+    "Economics",
+    "Political Science",
+    "Psychology",
+    "Literature",
+    "Engineering",
+    "Medicine",
+    "Business Studies",
+    "Accounting",
   ];
 
   const learningGoalOptions = [
-    "Improve grades", "Exam preparation", "Concept understanding",
-    "Homework help", "Competitive exams", "Skill development",
-    "Career preparation", "Personal growth"
+    "Improve grades",
+    "Exam preparation",
+    "Concept understanding",
+    "Homework help",
+    "Competitive exams",
+    "Skill development",
+    "Career preparation",
+    "Personal growth",
   ];
 
   const handleInputChange = (field: string, value: string) => {
-    setFormData(prev => ({
+    setFormData((prev) => ({
       ...prev,
-      [field]: value
+      [field]: value,
     }));
   };
 
   const handleSubjectToggle = (subject: string) => {
-    setFormData(prev => ({
+    setFormData((prev) => ({
       ...prev,
       subjects: prev.subjects.includes(subject)
-        ? prev.subjects.filter(s => s !== subject)
-        : [...prev.subjects, subject]
+        ? prev.subjects.filter((s) => s !== subject)
+        : [...prev.subjects, subject],
     }));
   };
 
   const handleGoalToggle = (goal: string) => {
-    setFormData(prev => ({
+    setFormData((prev) => ({
       ...prev,
       learningGoals: prev.learningGoals.includes(goal)
-        ? prev.learningGoals.filter(g => g !== goal)
-        : [...prev.learningGoals, goal]
+        ? prev.learningGoals.filter((g) => g !== goal)
+        : [...prev.learningGoals, goal],
     }));
   };
 
@@ -100,12 +141,12 @@ export default function Profile() {
     setIsLoading(true);
     try {
       // Simulate API call
-      await new Promise(resolve => setTimeout(resolve, 1000));
-      
+      await new Promise((resolve) => setTimeout(resolve, 1000));
+
       updateProfile(formData);
       setIsEditing(false);
     } catch (error) {
-      console.error('Update error:', error);
+      console.error("Update error:", error);
     } finally {
       setIsLoading(false);
     }
@@ -148,8 +189,8 @@ export default function Profile() {
                 <Home className="h-4 w-4 mr-2 inline" />
                 Back to Home
               </Link>
-              <Button 
-                variant="outline" 
+              <Button
+                variant="outline"
                 size="sm"
                 onClick={logout}
                 className="flex items-center gap-2"
@@ -164,7 +205,9 @@ export default function Profile() {
 
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="text-center mb-8">
-          <h1 className="text-4xl font-bold text-gray-900 mb-4">Your Profile</h1>
+          <h1 className="text-4xl font-bold text-gray-900 mb-4">
+            Your Profile
+          </h1>
           <p className="text-xl text-gray-600">
             Manage your personal information and learning preferences
           </p>
@@ -183,7 +226,9 @@ export default function Profile() {
                   <span>•</span>
                   <span>{user.subjects.length} subjects</span>
                   <span>•</span>
-                  <span>Member since {new Date(user.createdAt).toLocaleDateString()}</span>
+                  <span>
+                    Member since {new Date(user.createdAt).toLocaleDateString()}
+                  </span>
                 </CardDescription>
               </div>
               <Button
@@ -196,7 +241,7 @@ export default function Profile() {
               </Button>
             </div>
           </CardHeader>
-          
+
           <CardContent className="space-y-8">
             {/* Personal Information */}
             <div>
@@ -211,10 +256,14 @@ export default function Profile() {
                     <Input
                       id="firstName"
                       value={formData.firstName}
-                      onChange={(e) => handleInputChange("firstName", e.target.value)}
+                      onChange={(e) =>
+                        handleInputChange("firstName", e.target.value)
+                      }
                     />
                   ) : (
-                    <div className="p-3 bg-gray-50 rounded-md">{user.firstName}</div>
+                    <div className="p-3 bg-gray-50 rounded-md">
+                      {user.firstName}
+                    </div>
                   )}
                 </div>
                 <div className="space-y-2">
@@ -223,10 +272,14 @@ export default function Profile() {
                     <Input
                       id="lastName"
                       value={formData.lastName}
-                      onChange={(e) => handleInputChange("lastName", e.target.value)}
+                      onChange={(e) =>
+                        handleInputChange("lastName", e.target.value)
+                      }
                     />
                   ) : (
-                    <div className="p-3 bg-gray-50 rounded-md">{user.lastName}</div>
+                    <div className="p-3 bg-gray-50 rounded-md">
+                      {user.lastName}
+                    </div>
                   )}
                 </div>
                 <div className="space-y-2">
@@ -236,7 +289,9 @@ export default function Profile() {
                       id="email"
                       type="email"
                       value={formData.email}
-                      onChange={(e) => handleInputChange("email", e.target.value)}
+                      onChange={(e) =>
+                        handleInputChange("email", e.target.value)
+                      }
                     />
                   ) : (
                     <div className="p-3 bg-gray-50 rounded-md flex items-center gap-2">
@@ -251,7 +306,9 @@ export default function Profile() {
                     <Input
                       id="phone"
                       value={formData.phone}
-                      onChange={(e) => handleInputChange("phone", e.target.value)}
+                      onChange={(e) =>
+                        handleInputChange("phone", e.target.value)
+                      }
                     />
                   ) : (
                     <div className="p-3 bg-gray-50 rounded-md flex items-center gap-2">
@@ -267,7 +324,9 @@ export default function Profile() {
                       id="dateOfBirth"
                       type="date"
                       value={formData.dateOfBirth}
-                      onChange={(e) => handleInputChange("dateOfBirth", e.target.value)}
+                      onChange={(e) =>
+                        handleInputChange("dateOfBirth", e.target.value)
+                      }
                     />
                   ) : (
                     <div className="p-3 bg-gray-50 rounded-md flex items-center gap-2">
@@ -289,15 +348,17 @@ export default function Profile() {
                 <div className="space-y-2">
                   <Label htmlFor="standard">Class/Standard</Label>
                   {isEditing ? (
-                    <Select 
-                      value={formData.standard} 
-                      onValueChange={(value) => handleInputChange("standard", value)}
+                    <Select
+                      value={formData.standard}
+                      onValueChange={(value) =>
+                        handleInputChange("standard", value)
+                      }
                     >
                       <SelectTrigger>
                         <SelectValue />
                       </SelectTrigger>
                       <SelectContent>
-                        {standards.map(standard => (
+                        {standards.map((standard) => (
                           <SelectItem key={standard} value={standard}>
                             {standard}
                           </SelectItem>
@@ -305,7 +366,9 @@ export default function Profile() {
                       </SelectContent>
                     </Select>
                   ) : (
-                    <div className="p-3 bg-gray-50 rounded-md">{user.standard}</div>
+                    <div className="p-3 bg-gray-50 rounded-md">
+                      {user.standard}
+                    </div>
                   )}
                 </div>
                 <div className="space-y-2">
@@ -314,7 +377,9 @@ export default function Profile() {
                     <Input
                       id="school"
                       value={formData.school}
-                      onChange={(e) => handleInputChange("school", e.target.value)}
+                      onChange={(e) =>
+                        handleInputChange("school", e.target.value)
+                      }
                     />
                   ) : (
                     <div className="p-3 bg-gray-50 rounded-md flex items-center gap-2">
@@ -329,8 +394,11 @@ export default function Profile() {
                 <Label>Subjects</Label>
                 {isEditing ? (
                   <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 p-4 border rounded-md">
-                    {availableSubjects.map(subject => (
-                      <div key={subject} className="flex items-center space-x-2">
+                    {availableSubjects.map((subject) => (
+                      <div
+                        key={subject}
+                        className="flex items-center space-x-2"
+                      >
                         <Checkbox
                           id={subject}
                           checked={formData.subjects.includes(subject)}
@@ -344,7 +412,7 @@ export default function Profile() {
                   </div>
                 ) : (
                   <div className="flex flex-wrap gap-2">
-                    {user.subjects.map(subject => (
+                    {user.subjects.map((subject) => (
                       <Badge key={subject} variant="secondary">
                         {subject}
                       </Badge>
@@ -362,7 +430,7 @@ export default function Profile() {
               </h3>
               {isEditing ? (
                 <div className="grid grid-cols-2 md:grid-cols-4 gap-3 p-4 border rounded-md">
-                  {learningGoalOptions.map(goal => (
+                  {learningGoalOptions.map((goal) => (
                     <div key={goal} className="flex items-center space-x-2">
                       <Checkbox
                         id={goal}
@@ -377,7 +445,7 @@ export default function Profile() {
                 </div>
               ) : (
                 <div className="flex flex-wrap gap-2">
-                  {user.learningGoals.map(goal => (
+                  {user.learningGoals.map((goal) => (
                     <Badge key={goal} variant="outline">
                       {goal}
                     </Badge>
@@ -388,7 +456,7 @@ export default function Profile() {
 
             {isEditing && (
               <div className="flex gap-4 pt-6 border-t">
-                <Button 
+                <Button
                   onClick={handleSave}
                   disabled={isLoading}
                   className="bg-gradient-to-r from-blue-600 to-indigo-600"
@@ -405,7 +473,7 @@ export default function Profile() {
                     </>
                   )}
                 </Button>
-                <Button 
+                <Button
                   variant="outline"
                   onClick={handleCancel}
                   disabled={isLoading}

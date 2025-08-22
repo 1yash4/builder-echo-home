@@ -1,9 +1,21 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { useUser } from "@/contexts/UserContext";
 import {
@@ -16,7 +28,7 @@ import {
   TrendingUp,
   ChevronRight,
   Search,
-  User
+  User,
 } from "lucide-react";
 
 interface QuestionData {
@@ -36,13 +48,15 @@ const questionDatabase: QuestionData[] = [
     type: "information",
     subject: "Physics",
     topic: "Modern Physics",
-    content: "Modern physics refers to the developments in physics from the early 20th century onwards. It departs from classical physics, which describes phenomena at an everyday scale. The two main pillars of modern physics are quantum mechanics and relativity. [6] Quantum mechanics deals with the behavior of matter and energy at the atomic and subatomic levels, introducing concepts like quantization and wave-particle duality. [5, 6] Einstein's theory of relativity revolutionized our understanding of space, time, and gravity. [5]"
+    content:
+      "Modern physics refers to the developments in physics from the early 20th century onwards. It departs from classical physics, which describes phenomena at an everyday scale. The two main pillars of modern physics are quantum mechanics and relativity. [6] Quantum mechanics deals with the behavior of matter and energy at the atomic and subatomic levels, introducing concepts like quantization and wave-particle duality. [5, 6] Einstein's theory of relativity revolutionized our understanding of space, time, and gravity. [5]",
   },
   {
     type: "information",
     subject: "Biology",
     topic: "Core Concepts",
-    content: "High school biology introduces foundational principles of life sciences. [2] Key concepts include cell structure and function, genetics and heredity, evolution by natural selection, and the study of ecosystems which examines the flow of matter and energy between living systems and their environment. [1, 2, 3] Students also explore human physiology, understanding the functions of various body systems. [3] The curriculum emphasizes critical thinking and making sense of the natural world. [1, 2]"
+    content:
+      "High school biology introduces foundational principles of life sciences. [2] Key concepts include cell structure and function, genetics and heredity, evolution by natural selection, and the study of ecosystems which examines the flow of matter and energy between living systems and their environment. [1, 2, 3] Students also explore human physiology, understanding the functions of various body systems. [3] The curriculum emphasizes critical thinking and making sense of the natural world. [1, 2]",
   },
   {
     type: "question_answer",
@@ -51,8 +65,10 @@ const questionDatabase: QuestionData[] = [
     subject: "Science",
     topic: "Chemical Reactions",
     difficulty: "easy",
-    question: "What change in color is observed when white silver chloride is left exposed to sunlight and what type of chemical reaction is this?",
-    answer: "The white silver chloride turns grey. This is a photochemical decomposition reaction."
+    question:
+      "What change in color is observed when white silver chloride is left exposed to sunlight and what type of chemical reaction is this?",
+    answer:
+      "The white silver chloride turns grey. This is a photochemical decomposition reaction.",
   },
   {
     type: "question_answer",
@@ -61,8 +77,10 @@ const questionDatabase: QuestionData[] = [
     subject: "Computer Science",
     topic: "Boolean Algebra",
     difficulty: "medium",
-    question: "Given the Boolean function F(A, B, C, D) = Σ(0, 2, 4, 8, 9, 10, 12, 13), use a Karnaugh map to find the simplified SOP expression.",
-    answer: "The simplified Sum of Products (SOP) expression is F(A, B, C, D) = C'D' + A'D' + AB'C'."
+    question:
+      "Given the Boolean function F(A, B, C, D) = Σ(0, 2, 4, 8, 9, 10, 12, 13), use a Karnaugh map to find the simplified SOP expression.",
+    answer:
+      "The simplified Sum of Products (SOP) expression is F(A, B, C, D) = C'D' + A'D' + AB'C'.",
   },
   {
     type: "question_answer",
@@ -71,8 +89,10 @@ const questionDatabase: QuestionData[] = [
     subject: "Science",
     topic: "Heredity and Evolution",
     difficulty: "medium",
-    question: "A cross between a tall pea plant (TT) and a short pea plant (tt) resulted in progeny that were all tall. What would be the ratio of tall to short plants in the F2 generation if the F1 plants are self-pollinated?",
-    answer: "The ratio of tall to short plants in the F2 generation would be 3:1."
+    question:
+      "A cross between a tall pea plant (TT) and a short pea plant (tt) resulted in progeny that were all tall. What would be the ratio of tall to short plants in the F2 generation if the F1 plants are self-pollinated?",
+    answer:
+      "The ratio of tall to short plants in the F2 generation would be 3:1.",
   },
   {
     type: "question_answer",
@@ -81,8 +101,10 @@ const questionDatabase: QuestionData[] = [
     subject: "Physics",
     topic: "Electrostatics",
     difficulty: "hard",
-    question: "Three capacitors of capacitances 2 pF, 3 pF and 4 pF are connected in parallel. (a) What is the total capacitance of the combination? (b) Determine the charge on each capacitor if the combination is connected to a 100 V supply.",
-    answer: "(a) The total capacitance is 9 pF. (b) The charge on the 2 pF capacitor is 200 pC, on the 3 pF capacitor is 300 pC, and on the 4 pF capacitor is 400 pC."
+    question:
+      "Three capacitors of capacitances 2 pF, 3 pF and 4 pF are connected in parallel. (a) What is the total capacitance of the combination? (b) Determine the charge on each capacitor if the combination is connected to a 100 V supply.",
+    answer:
+      "(a) The total capacitance is 9 pF. (b) The charge on the 2 pF capacitor is 200 pC, on the 3 pF capacitor is 300 pC, and on the 4 pF capacitor is 400 pC.",
   },
   {
     type: "question_answer",
@@ -92,7 +114,8 @@ const questionDatabase: QuestionData[] = [
     topic: "Metals and Non-metals",
     difficulty: "easy",
     question: "Why is sodium kept immersed in kerosene oil?",
-    answer: "Sodium is a highly reactive metal that reacts vigorously with oxygen and moisture in the air. It is kept immersed in kerosene oil to prevent it from coming into contact with air and catching fire."
+    answer:
+      "Sodium is a highly reactive metal that reacts vigorously with oxygen and moisture in the air. It is kept immersed in kerosene oil to prevent it from coming into contact with air and catching fire.",
   },
   {
     type: "question_answer",
@@ -101,8 +124,9 @@ const questionDatabase: QuestionData[] = [
     subject: "Chemistry",
     topic: "Chemical Kinetics",
     difficulty: "hard",
-    question: "The rate of a reaction doubles when its temperature changes from 300K to 310K. The activation energy of such a reaction will be: (R = 8.314 J K⁻¹ mol⁻¹ and log 2 = 0.301)",
-    answer: "The activation energy is 53.6 kJ/mol."
+    question:
+      "The rate of a reaction doubles when its temperature changes from 300K to 310K. The activation energy of such a reaction will be: (R = 8.314 J K⁻¹ mol⁻¹ and log 2 = 0.301)",
+    answer: "The activation energy is 53.6 kJ/mol.",
   },
   {
     type: "question_answer",
@@ -111,8 +135,10 @@ const questionDatabase: QuestionData[] = [
     subject: "Mathematics",
     topic: "Probability",
     difficulty: "medium",
-    question: "Two cards are drawn successively with replacement from a well-shuffled deck of 52 cards. Find the probability distribution of the number of aces.",
-    answer: "Let X be the number of aces. P(X=0) = (48/52) * (48/52) = 144/169. P(X=1) = 2 * (4/52) * (48/52) = 24/169. P(X=2) = (4/52) * (4/52) = 1/169."
+    question:
+      "Two cards are drawn successively with replacement from a well-shuffled deck of 52 cards. Find the probability distribution of the number of aces.",
+    answer:
+      "Let X be the number of aces. P(X=0) = (48/52) * (48/52) = 144/169. P(X=1) = 2 * (4/52) * (48/52) = 24/169. P(X=2) = (4/52) * (4/52) = 1/169.",
   },
   {
     type: "question_answer",
@@ -121,8 +147,10 @@ const questionDatabase: QuestionData[] = [
     subject: "Computer Science",
     topic: "Algorithms",
     difficulty: "hard",
-    question: "What is the time complexity of the Heap Sort algorithm in the worst-case scenario, and is it a stable sort?",
-    answer: "The time complexity of Heap Sort in the worst-case scenario is O(n log n). It is not a stable sort because the order of equal elements may not be preserved."
+    question:
+      "What is the time complexity of the Heap Sort algorithm in the worst-case scenario, and is it a stable sort?",
+    answer:
+      "The time complexity of Heap Sort in the worst-case scenario is O(n log n). It is not a stable sort because the order of equal elements may not be preserved.",
   },
   {
     type: "question_answer",
@@ -132,7 +160,8 @@ const questionDatabase: QuestionData[] = [
     topic: "Life Processes",
     difficulty: "easy",
     question: "What is the role of acid in our stomach?",
-    answer: "The hydrochloric acid in our stomach creates an acidic medium which facilitates the action of the enzyme pepsin for digesting proteins. It also kills any germs that may enter the system along with the food."
+    answer:
+      "The hydrochloric acid in our stomach creates an acidic medium which facilitates the action of the enzyme pepsin for digesting proteins. It also kills any germs that may enter the system along with the food.",
   },
   {
     type: "question_answer",
@@ -141,8 +170,10 @@ const questionDatabase: QuestionData[] = [
     subject: "Physics",
     topic: "Semiconductors",
     difficulty: "medium",
-    question: "Explain the formation of a depletion region and a potential barrier in a p-n junction diode.",
-    answer: "In a p-n junction, electrons from the n-side diffuse to the p-side and holes from the p-side diffuse to the n-side. This diffusion creates a layer of immobile positive ions on the n-side and immobile negative ions on the p-side near the junction. This layer, devoid of free charge carriers, is called the depletion region. The potential difference developed across this depletion region, which opposes further diffusion, is called the potential barrier."
+    question:
+      "Explain the formation of a depletion region and a potential barrier in a p-n junction diode.",
+    answer:
+      "In a p-n junction, electrons from the n-side diffuse to the p-side and holes from the p-side diffuse to the n-side. This diffusion creates a layer of immobile positive ions on the n-side and immobile negative ions on the p-side near the junction. This layer, devoid of free charge carriers, is called the depletion region. The potential difference developed across this depletion region, which opposes further diffusion, is called the potential barrier.",
   },
   {
     type: "question_answer",
@@ -151,9 +182,11 @@ const questionDatabase: QuestionData[] = [
     subject: "Mathematics",
     topic: "Calculus",
     difficulty: "hard",
-    question: "If the line y = mx + c is a tangent to the circle x² + y² = a², what is the value of c?",
-    answer: "The condition for tangency is that the perpendicular distance from the center (0,0) to the line is equal to the radius 'a'. This gives the value of c as c = ±a√(1+m²)."
-  }
+    question:
+      "If the line y = mx + c is a tangent to the circle x² + y² = a², what is the value of c?",
+    answer:
+      "The condition for tangency is that the perpendicular distance from the center (0,0) to the line is equal to the radius 'a'. This gives the value of c as c = ±a√(1+m²).",
+  },
 ];
 
 export default function QuestionPapers() {
@@ -172,20 +205,27 @@ export default function QuestionPapers() {
   }, [isAuthenticated, user]);
 
   // Extract unique values for filters
-  const subjects = [...new Set(questionDatabase.map(q => q.subject))].sort();
-  const standards = [...new Set(questionDatabase.filter(q => q.standard).map(q => q.standard!))].sort();
+  const subjects = [...new Set(questionDatabase.map((q) => q.subject))].sort();
+  const standards = [
+    ...new Set(
+      questionDatabase.filter((q) => q.standard).map((q) => q.standard!),
+    ),
+  ].sort();
   const difficulties = ["easy", "medium", "hard"];
-  const years = [...new Set(questionDatabase.filter(q => q.year).map(q => q.year!))].sort((a, b) => b - a);
+  const years = [
+    ...new Set(questionDatabase.filter((q) => q.year).map((q) => q.year!)),
+  ].sort((a, b) => b - a);
 
   // Filter questions based on selections
-  const filteredQuestions = questionDatabase.filter(item => {
+  const filteredQuestions = questionDatabase.filter((item) => {
     if (item.type !== "question_answer") return false;
-    
+
     if (selectedSubject && item.subject !== selectedSubject) return false;
     if (selectedStandard && item.standard !== selectedStandard) return false;
-    if (selectedDifficulty && item.difficulty !== selectedDifficulty) return false;
+    if (selectedDifficulty && item.difficulty !== selectedDifficulty)
+      return false;
     if (selectedYear && item.year?.toString() !== selectedYear) return false;
-    
+
     return true;
   });
 
@@ -208,10 +248,14 @@ export default function QuestionPapers() {
 
   const getDifficultyColor = (difficulty: string) => {
     switch (difficulty) {
-      case "easy": return "bg-green-100 text-green-700";
-      case "medium": return "bg-yellow-100 text-yellow-700";
-      case "hard": return "bg-red-100 text-red-700";
-      default: return "bg-gray-100 text-gray-700";
+      case "easy":
+        return "bg-green-100 text-green-700";
+      case "medium":
+        return "bg-yellow-100 text-yellow-700";
+      case "hard":
+        return "bg-red-100 text-red-700";
+      default:
+        return "bg-gray-100 text-gray-700";
     }
   };
 
@@ -230,7 +274,10 @@ export default function QuestionPapers() {
               </span>
             </Link>
             <div className="flex items-center space-x-4">
-              <Link to="/" className="inline-flex items-center text-blue-600 hover:text-blue-700">
+              <Link
+                to="/"
+                className="inline-flex items-center text-blue-600 hover:text-blue-700"
+              >
                 <Home className="h-4 w-4 mr-2" />
                 Back to Home
               </Link>
@@ -251,47 +298,68 @@ export default function QuestionPapers() {
         <div className="text-center mb-12">
           <div className="flex items-center justify-center gap-2 mb-4">
             <FileText className="h-8 w-8 text-blue-600" />
-            <h1 className="text-4xl font-bold text-gray-900">Question Papers</h1>
+            <h1 className="text-4xl font-bold text-gray-900">
+              Question Papers
+            </h1>
           </div>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-            Access thousands of real exam questions from past papers, organized by subject, class, and difficulty.
-            Perfect for comprehensive exam preparation and testing your knowledge.
+            Access thousands of real exam questions from past papers, organized
+            by subject, class, and difficulty. Perfect for comprehensive exam
+            preparation and testing your knowledge.
           </p>
         </div>
 
         {/* Information Section */}
         <Card className="border-0 shadow-lg bg-white mb-8">
           <CardContent className="p-8">
-            <h2 className="text-2xl font-bold text-gray-900 text-center mb-6">Why Practice with Past Papers?</h2>
+            <h2 className="text-2xl font-bold text-gray-900 text-center mb-6">
+              Why Practice with Past Papers?
+            </h2>
 
             <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
               <div className="text-center">
                 <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mx-auto mb-3">
                   <BookOpen className="h-6 w-6 text-blue-600" />
                 </div>
-                <h3 className="font-semibold text-gray-900 mb-2">Real Exam Experience</h3>
-                <p className="text-sm text-gray-600">Practice with actual questions from previous exams</p>
+                <h3 className="font-semibold text-gray-900 mb-2">
+                  Real Exam Experience
+                </h3>
+                <p className="text-sm text-gray-600">
+                  Practice with actual questions from previous exams
+                </p>
               </div>
               <div className="text-center">
                 <div className="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center mx-auto mb-3">
                   <Clock className="h-6 w-6 text-green-600" />
                 </div>
-                <h3 className="font-semibold text-gray-900 mb-2">Time Management</h3>
-                <p className="text-sm text-gray-600">Learn to manage time effectively during exams</p>
+                <h3 className="font-semibold text-gray-900 mb-2">
+                  Time Management
+                </h3>
+                <p className="text-sm text-gray-600">
+                  Learn to manage time effectively during exams
+                </p>
               </div>
               <div className="text-center">
                 <div className="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center mx-auto mb-3">
                   <TrendingUp className="h-6 w-6 text-purple-600" />
                 </div>
-                <h3 className="font-semibold text-gray-900 mb-2">Identify Patterns</h3>
-                <p className="text-sm text-gray-600">Understand question patterns and trending topics</p>
+                <h3 className="font-semibold text-gray-900 mb-2">
+                  Identify Patterns
+                </h3>
+                <p className="text-sm text-gray-600">
+                  Understand question patterns and trending topics
+                </p>
               </div>
               <div className="text-center">
                 <div className="w-12 h-12 bg-orange-100 rounded-lg flex items-center justify-center mx-auto mb-3">
                   <Search className="h-6 w-6 text-orange-600" />
                 </div>
-                <h3 className="font-semibold text-gray-900 mb-2">Targeted Practice</h3>
-                <p className="text-sm text-gray-600">Focus on specific subjects and difficulty levels</p>
+                <h3 className="font-semibold text-gray-900 mb-2">
+                  Targeted Practice
+                </h3>
+                <p className="text-sm text-gray-600">
+                  Focus on specific subjects and difficulty levels
+                </p>
               </div>
             </div>
           </CardContent>
@@ -311,14 +379,21 @@ export default function QuestionPapers() {
           <CardContent>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-4">
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">Subject</label>
-                <Select value={selectedSubject} onValueChange={setSelectedSubject}>
+                <label className="block text-sm font-medium text-gray-700 mb-2">
+                  Subject
+                </label>
+                <Select
+                  value={selectedSubject}
+                  onValueChange={setSelectedSubject}
+                >
                   <SelectTrigger>
                     <SelectValue placeholder="Select subject" />
                   </SelectTrigger>
                   <SelectContent>
-                    {subjects.map(subject => (
-                      <SelectItem key={subject} value={subject}>{subject}</SelectItem>
+                    {subjects.map((subject) => (
+                      <SelectItem key={subject} value={subject}>
+                        {subject}
+                      </SelectItem>
                     ))}
                   </SelectContent>
                 </Select>
@@ -328,31 +403,22 @@ export default function QuestionPapers() {
                 <label className="block text-sm font-medium text-gray-700 mb-2">
                   Class/Standard
                   {isAuthenticated && user?.standard && (
-                    <span className="text-xs text-green-600 ml-2">(Auto-selected from your profile)</span>
+                    <span className="text-xs text-green-600 ml-2">
+                      (Auto-selected from your profile)
+                    </span>
                   )}
                 </label>
-                <Select value={selectedStandard} onValueChange={setSelectedStandard}>
+                <Select
+                  value={selectedStandard}
+                  onValueChange={setSelectedStandard}
+                >
                   <SelectTrigger>
                     <SelectValue placeholder="Select class" />
                   </SelectTrigger>
                   <SelectContent>
-                    {standards.map(standard => (
-                      <SelectItem key={standard} value={standard}>{standard}</SelectItem>
-                    ))}
-                  </SelectContent>
-                </Select>
-              </div>
-
-              <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">Difficulty</label>
-                <Select value={selectedDifficulty} onValueChange={setSelectedDifficulty}>
-                  <SelectTrigger>
-                    <SelectValue placeholder="Select difficulty" />
-                  </SelectTrigger>
-                  <SelectContent>
-                    {difficulties.map(difficulty => (
-                      <SelectItem key={difficulty} value={difficulty}>
-                        {difficulty.charAt(0).toUpperCase() + difficulty.slice(1)}
+                    {standards.map((standard) => (
+                      <SelectItem key={standard} value={standard}>
+                        {standard}
                       </SelectItem>
                     ))}
                   </SelectContent>
@@ -360,14 +426,40 @@ export default function QuestionPapers() {
               </div>
 
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">Year</label>
+                <label className="block text-sm font-medium text-gray-700 mb-2">
+                  Difficulty
+                </label>
+                <Select
+                  value={selectedDifficulty}
+                  onValueChange={setSelectedDifficulty}
+                >
+                  <SelectTrigger>
+                    <SelectValue placeholder="Select difficulty" />
+                  </SelectTrigger>
+                  <SelectContent>
+                    {difficulties.map((difficulty) => (
+                      <SelectItem key={difficulty} value={difficulty}>
+                        {difficulty.charAt(0).toUpperCase() +
+                          difficulty.slice(1)}
+                      </SelectItem>
+                    ))}
+                  </SelectContent>
+                </Select>
+              </div>
+
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-2">
+                  Year
+                </label>
                 <Select value={selectedYear} onValueChange={setSelectedYear}>
                   <SelectTrigger>
                     <SelectValue placeholder="Select year" />
                   </SelectTrigger>
                   <SelectContent>
-                    {years.map(year => (
-                      <SelectItem key={year} value={year.toString()}>{year}</SelectItem>
+                    {years.map((year) => (
+                      <SelectItem key={year} value={year.toString()}>
+                        {year}
+                      </SelectItem>
                     ))}
                   </SelectContent>
                 </Select>
@@ -392,18 +484,21 @@ export default function QuestionPapers() {
             <Card className="border-0 shadow-lg bg-white">
               <CardContent className="text-center py-12">
                 <BookOpen className="h-12 w-12 text-gray-400 mx-auto mb-4" />
-                <h3 className="text-xl font-semibold text-gray-900 mb-2">No questions found</h3>
+                <h3 className="text-xl font-semibold text-gray-900 mb-2">
+                  No questions found
+                </h3>
                 <p className="text-gray-600 mb-4">
                   Try adjusting your filters to find more questions.
                 </p>
-                <Button onClick={clearFilters}>
-                  Clear All Filters
-                </Button>
+                <Button onClick={clearFilters}>Clear All Filters</Button>
               </CardContent>
             </Card>
           ) : (
             filteredQuestions.map((question, index) => (
-              <Card key={index} className="border-0 shadow-lg bg-white hover:shadow-xl transition-shadow">
+              <Card
+                key={index}
+                className="border-0 shadow-lg bg-white hover:shadow-xl transition-shadow"
+              >
                 <CardHeader className="pb-4">
                   <div className="flex flex-wrap items-start justify-between gap-4">
                     <div className="flex-1">
@@ -411,14 +506,13 @@ export default function QuestionPapers() {
                         Question {index + 1}
                       </CardTitle>
                       <div className="flex flex-wrap items-center gap-2">
-                        <Badge variant="secondary">
-                          {question.subject}
-                        </Badge>
-                        <Badge variant="outline">
-                          {question.standard}
-                        </Badge>
-                        <Badge className={getDifficultyColor(question.difficulty!)}>
-                          {question.difficulty?.charAt(0).toUpperCase() + question.difficulty?.slice(1)}
+                        <Badge variant="secondary">{question.subject}</Badge>
+                        <Badge variant="outline">{question.standard}</Badge>
+                        <Badge
+                          className={getDifficultyColor(question.difficulty!)}
+                        >
+                          {question.difficulty?.charAt(0).toUpperCase() +
+                            question.difficulty?.slice(1)}
                         </Badge>
                         {question.year && (
                           <Badge variant="outline">
@@ -426,9 +520,7 @@ export default function QuestionPapers() {
                             {question.year}
                           </Badge>
                         )}
-                        <Badge variant="outline">
-                          {question.topic}
-                        </Badge>
+                        <Badge variant="outline">{question.topic}</Badge>
                       </div>
                     </div>
                   </div>
@@ -436,28 +528,36 @@ export default function QuestionPapers() {
                 <CardContent>
                   <div className="space-y-4">
                     <div>
-                      <h4 className="font-medium text-gray-900 mb-2">Question:</h4>
-                      <p className="text-gray-700 leading-relaxed">{question.question}</p>
+                      <h4 className="font-medium text-gray-900 mb-2">
+                        Question:
+                      </h4>
+                      <p className="text-gray-700 leading-relaxed">
+                        {question.question}
+                      </p>
                     </div>
-                    
+
                     {showAnswers.has(index) && (
                       <div className="bg-green-50 border border-green-200 rounded-lg p-4">
-                        <h4 className="font-medium text-green-900 mb-2">Answer:</h4>
-                        <p className="text-green-800 leading-relaxed">{question.answer}</p>
+                        <h4 className="font-medium text-green-900 mb-2">
+                          Answer:
+                        </h4>
+                        <p className="text-green-800 leading-relaxed">
+                          {question.answer}
+                        </p>
                       </div>
                     )}
 
                     <div className="flex justify-end">
-                      <Button 
-                        variant="outline" 
+                      <Button
+                        variant="outline"
                         onClick={() => toggleAnswer(index)}
                         className="flex items-center gap-2"
                       >
-                        {showAnswers.has(index) ? 'Hide Answer' : 'Show Answer'}
-                        <ChevronRight 
+                        {showAnswers.has(index) ? "Hide Answer" : "Show Answer"}
+                        <ChevronRight
                           className={`h-4 w-4 transition-transform ${
-                            showAnswers.has(index) ? 'rotate-90' : ''
-                          }`} 
+                            showAnswers.has(index) ? "rotate-90" : ""
+                          }`}
                         />
                       </Button>
                     </div>
@@ -473,14 +573,22 @@ export default function QuestionPapers() {
           <div className="mt-12 grid grid-cols-1 md:grid-cols-3 gap-6">
             <Card className="border-0 shadow-lg bg-gradient-to-r from-blue-600 to-indigo-600 text-white">
               <CardContent className="p-6 text-center">
-                <div className="text-3xl font-bold mb-2">{filteredQuestions.length}</div>
+                <div className="text-3xl font-bold mb-2">
+                  {filteredQuestions.length}
+                </div>
                 <div className="text-blue-100">Questions Available</div>
               </CardContent>
             </Card>
             <Card className="border-0 shadow-lg bg-gradient-to-r from-green-600 to-teal-600 text-white">
               <CardContent className="p-6 text-center">
                 <div className="text-3xl font-bold mb-2">
-                  {Math.round((filteredQuestions.filter(q => q.difficulty === 'easy').length / filteredQuestions.length) * 100)}%
+                  {Math.round(
+                    (filteredQuestions.filter((q) => q.difficulty === "easy")
+                      .length /
+                      filteredQuestions.length) *
+                      100,
+                  )}
+                  %
                 </div>
                 <div className="text-green-100">Easy Questions</div>
               </CardContent>
@@ -488,7 +596,7 @@ export default function QuestionPapers() {
             <Card className="border-0 shadow-lg bg-gradient-to-r from-purple-600 to-pink-600 text-white">
               <CardContent className="p-6 text-center">
                 <div className="text-3xl font-bold mb-2">
-                  {new Set(filteredQuestions.map(q => q.topic)).size}
+                  {new Set(filteredQuestions.map((q) => q.topic)).size}
                 </div>
                 <div className="text-purple-100">Different Topics</div>
               </CardContent>

@@ -1,12 +1,18 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Badge } from "@/components/ui/badge";
-import { 
-  Home, 
-  MessageCircle, 
+import {
+  Home,
+  MessageCircle,
   Send,
   GraduationCap,
   Brain,
@@ -17,7 +23,7 @@ import {
   User,
   Bot,
   Upload,
-  Sparkles
+  Sparkles,
 } from "lucide-react";
 
 interface Message {
@@ -32,10 +38,11 @@ export default function AITutor() {
   const [messages, setMessages] = useState<Message[]>([
     {
       id: "1",
-      content: "Hello! I'm your AI Tutor. I can help you understand concepts, explain difficult topics, and answer questions based on your study material. What would you like to learn about today?",
+      content:
+        "Hello! I'm your AI Tutor. I can help you understand concepts, explain difficult topics, and answer questions based on your study material. What would you like to learn about today?",
       sender: "ai",
-      timestamp: new Date()
-    }
+      timestamp: new Date(),
+    },
   ]);
   const [isTyping, setIsTyping] = useState(false);
 
@@ -46,10 +53,10 @@ export default function AITutor() {
       id: Date.now().toString(),
       content: message,
       sender: "user",
-      timestamp: new Date()
+      timestamp: new Date(),
     };
 
-    setMessages(prev => [...prev, userMessage]);
+    setMessages((prev) => [...prev, userMessage]);
     setMessage("");
     setIsTyping(true);
 
@@ -59,16 +66,16 @@ export default function AITutor() {
         id: (Date.now() + 1).toString(),
         content: getAIResponse(userMessage.content),
         sender: "ai",
-        timestamp: new Date()
+        timestamp: new Date(),
       };
-      setMessages(prev => [...prev, aiResponse]);
+      setMessages((prev) => [...prev, aiResponse]);
       setIsTyping(false);
     }, 1500);
   };
 
   const getAIResponse = (userInput: string) => {
     const input = userInput.toLowerCase();
-    
+
     if (input.includes("photosynthesis")) {
       return "Photosynthesis is the process plants use to convert sunlight into energy! It happens in two main stages: light reactions (in thylakoids) and the Calvin cycle (in stroma). The equation is: 6CO2 + 6H2O + light → C6H12O6 + 6O2. Would you like me to explain any specific part in more detail?";
     } else if (input.includes("mitochondria")) {
@@ -88,30 +95,31 @@ export default function AITutor() {
     "How do equations work?",
     "Tell me about gravity",
     "What is the cell cycle?",
-    "Explain the water cycle"
+    "Explain the water cycle",
   ];
 
   const capabilities = [
     {
       icon: <Brain className="h-6 w-6" />,
       title: "Concept Explanation",
-      description: "Break down complex topics into simple, understandable parts"
+      description:
+        "Break down complex topics into simple, understandable parts",
     },
     {
       icon: <Target className="h-6 w-6" />,
       title: "Personalized Help",
-      description: "Adapt explanations to your learning style and level"
+      description: "Adapt explanations to your learning style and level",
     },
     {
       icon: <BookOpen className="h-6 w-6" />,
       title: "Study Material Based",
-      description: "Answer questions specifically from your uploaded content"
+      description: "Answer questions specifically from your uploaded content",
     },
     {
       icon: <Zap className="h-6 w-6" />,
       title: "Instant Responses",
-      description: "Get immediate answers to your questions anytime"
-    }
+      description: "Get immediate answers to your questions anytime",
+    },
   ];
 
   const features = [
@@ -120,7 +128,7 @@ export default function AITutor() {
     "Adapts to your learning pace",
     "Available 24/7 for instant help",
     "Connects topics to real-world examples",
-    "Helps with homework and exam prep"
+    "Helps with homework and exam prep",
   ];
 
   return (
@@ -137,7 +145,10 @@ export default function AITutor() {
                 StudyGenie
               </span>
             </Link>
-            <Link to="/" className="inline-flex items-center text-blue-600 hover:text-blue-700">
+            <Link
+              to="/"
+              className="inline-flex items-center text-blue-600 hover:text-blue-700"
+            >
               <Home className="h-4 w-4 mr-2" />
               Back to Home
             </Link>
@@ -153,21 +164,29 @@ export default function AITutor() {
             <h1 className="text-4xl font-bold text-gray-900">AI Tutor</h1>
           </div>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-            Your personal AI tutor is here to help! Ask questions, get explanations, 
-            and receive guidance based on your study materials. Available 24/7 for instant learning support.
+            Your personal AI tutor is here to help! Ask questions, get
+            explanations, and receive guidance based on your study materials.
+            Available 24/7 for instant learning support.
           </p>
         </div>
 
         {/* Capabilities Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
           {capabilities.map((capability, index) => (
-            <Card key={index} className="border-0 shadow-lg bg-white text-center">
+            <Card
+              key={index}
+              className="border-0 shadow-lg bg-white text-center"
+            >
               <CardContent className="p-6">
                 <div className="w-12 h-12 bg-gradient-to-br from-blue-600 to-indigo-600 rounded-lg flex items-center justify-center mx-auto mb-4 text-white">
                   {capability.icon}
                 </div>
-                <h3 className="font-semibold text-gray-900 mb-2">{capability.title}</h3>
-                <p className="text-sm text-gray-600">{capability.description}</p>
+                <h3 className="font-semibold text-gray-900 mb-2">
+                  {capability.title}
+                </h3>
+                <p className="text-sm text-gray-600">
+                  {capability.description}
+                </p>
               </CardContent>
             </Card>
           ))}
@@ -187,35 +206,55 @@ export default function AITutor() {
                   Ask any question about your study material
                 </CardDescription>
               </CardHeader>
-              
+
               {/* Messages */}
               <CardContent className="flex-1 overflow-y-auto p-4 space-y-4">
                 {messages.map((msg) => (
-                  <div key={msg.id} className={`flex ${msg.sender === "user" ? "justify-end" : "justify-start"}`}>
-                    <div className={`flex items-start gap-3 max-w-[80%] ${msg.sender === "user" ? "flex-row-reverse" : ""}`}>
-                      <div className={`w-8 h-8 rounded-full flex items-center justify-center ${
-                        msg.sender === "user" 
-                          ? "bg-blue-600 text-white" 
-                          : "bg-gradient-to-br from-purple-600 to-pink-600 text-white"
-                      }`}>
-                        {msg.sender === "user" ? <User className="h-4 w-4" /> : <Bot className="h-4 w-4" />}
+                  <div
+                    key={msg.id}
+                    className={`flex ${msg.sender === "user" ? "justify-end" : "justify-start"}`}
+                  >
+                    <div
+                      className={`flex items-start gap-3 max-w-[80%] ${msg.sender === "user" ? "flex-row-reverse" : ""}`}
+                    >
+                      <div
+                        className={`w-8 h-8 rounded-full flex items-center justify-center ${
+                          msg.sender === "user"
+                            ? "bg-blue-600 text-white"
+                            : "bg-gradient-to-br from-purple-600 to-pink-600 text-white"
+                        }`}
+                      >
+                        {msg.sender === "user" ? (
+                          <User className="h-4 w-4" />
+                        ) : (
+                          <Bot className="h-4 w-4" />
+                        )}
                       </div>
-                      <div className={`rounded-lg p-3 ${
-                        msg.sender === "user"
-                          ? "bg-blue-600 text-white"
-                          : "bg-gray-100 text-gray-900"
-                      }`}>
+                      <div
+                        className={`rounded-lg p-3 ${
+                          msg.sender === "user"
+                            ? "bg-blue-600 text-white"
+                            : "bg-gray-100 text-gray-900"
+                        }`}
+                      >
                         <p className="text-sm leading-relaxed">{msg.content}</p>
-                        <p className={`text-xs mt-1 ${
-                          msg.sender === "user" ? "text-blue-100" : "text-gray-500"
-                        }`}>
-                          {msg.timestamp.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}
+                        <p
+                          className={`text-xs mt-1 ${
+                            msg.sender === "user"
+                              ? "text-blue-100"
+                              : "text-gray-500"
+                          }`}
+                        >
+                          {msg.timestamp.toLocaleTimeString([], {
+                            hour: "2-digit",
+                            minute: "2-digit",
+                          })}
                         </p>
                       </div>
                     </div>
                   </div>
                 ))}
-                
+
                 {isTyping && (
                   <div className="flex justify-start">
                     <div className="flex items-start gap-3 max-w-[80%]">
@@ -225,8 +264,14 @@ export default function AITutor() {
                       <div className="bg-gray-100 rounded-lg p-3">
                         <div className="flex space-x-1">
                           <div className="w-2 h-2 bg-gray-400 rounded-full animate-bounce"></div>
-                          <div className="w-2 h-2 bg-gray-400 rounded-full animate-bounce" style={{ animationDelay: "0.1s" }}></div>
-                          <div className="w-2 h-2 bg-gray-400 rounded-full animate-bounce" style={{ animationDelay: "0.2s" }}></div>
+                          <div
+                            className="w-2 h-2 bg-gray-400 rounded-full animate-bounce"
+                            style={{ animationDelay: "0.1s" }}
+                          ></div>
+                          <div
+                            className="w-2 h-2 bg-gray-400 rounded-full animate-bounce"
+                            style={{ animationDelay: "0.2s" }}
+                          ></div>
                         </div>
                       </div>
                     </div>
@@ -244,7 +289,7 @@ export default function AITutor() {
                     onKeyPress={(e) => e.key === "Enter" && handleSendMessage()}
                     className="flex-1"
                   />
-                  <Button 
+                  <Button
                     onClick={handleSendMessage}
                     disabled={!message.trim() || isTyping}
                     className="bg-gradient-to-r from-blue-600 to-indigo-600"
@@ -322,28 +367,39 @@ export default function AITutor() {
         {/* How It Works */}
         <Card className="border-0 shadow-lg bg-gradient-to-r from-purple-600 to-pink-600 text-white mt-12">
           <CardContent className="p-8">
-            <h2 className="text-2xl font-bold text-center mb-8">How Your AI Tutor Works</h2>
+            <h2 className="text-2xl font-bold text-center mb-8">
+              How Your AI Tutor Works
+            </h2>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
               <div className="text-center">
                 <div className="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-4">
                   <span className="text-2xl font-bold">1</span>
                 </div>
                 <h3 className="text-lg font-semibold mb-2">Ask Questions</h3>
-                <p className="text-purple-100">Type any question about your study material or academic concepts</p>
+                <p className="text-purple-100">
+                  Type any question about your study material or academic
+                  concepts
+                </p>
               </div>
               <div className="text-center">
                 <div className="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-4">
                   <span className="text-2xl font-bold">2</span>
                 </div>
                 <h3 className="text-lg font-semibold mb-2">AI Analysis</h3>
-                <p className="text-purple-100">Advanced AI understands your question and finds relevant information</p>
+                <p className="text-purple-100">
+                  Advanced AI understands your question and finds relevant
+                  information
+                </p>
               </div>
               <div className="text-center">
                 <div className="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-4">
                   <span className="text-2xl font-bold">3</span>
                 </div>
                 <h3 className="text-lg font-semibold mb-2">Get Explanations</h3>
-                <p className="text-purple-100">Receive clear, personalized explanations tailored to your learning level</p>
+                <p className="text-purple-100">
+                  Receive clear, personalized explanations tailored to your
+                  learning level
+                </p>
               </div>
             </div>
           </CardContent>

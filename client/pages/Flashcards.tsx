@@ -3,7 +3,14 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Progress } from "@/components/ui/progress";
-import { ChevronLeft, ChevronRight, RotateCcw, Home, Lightbulb, Shuffle } from "lucide-react";
+import {
+  ChevronLeft,
+  ChevronRight,
+  RotateCcw,
+  Home,
+  Lightbulb,
+  Shuffle,
+} from "lucide-react";
 import { Link } from "react-router-dom";
 
 interface Flashcard {
@@ -14,36 +21,44 @@ interface Flashcard {
 const sampleFlashcards: Flashcard[] = [
   {
     term: "Photosynthesis",
-    definition: "The process by which green plants and some other organisms use sunlight to synthesize foods with the help of chlorophyll pigments."
+    definition:
+      "The process by which green plants and some other organisms use sunlight to synthesize foods with the help of chlorophyll pigments.",
   },
   {
     term: "Mitochondria",
-    definition: "The powerhouse of the cell, responsible for producing energy (ATP) through cellular respiration."
+    definition:
+      "The powerhouse of the cell, responsible for producing energy (ATP) through cellular respiration.",
   },
   {
     term: "DNA",
-    definition: "Deoxyribonucleic acid, a molecule that carries genetic instructions for the development and function of living things."
+    definition:
+      "Deoxyribonucleic acid, a molecule that carries genetic instructions for the development and function of living things.",
   },
   {
     term: "Ecosystem",
-    definition: "A biological community of interacting organisms and their physical environment."
+    definition:
+      "A biological community of interacting organisms and their physical environment.",
   },
   {
     term: "Cell Membrane",
-    definition: "A biological membrane that separates the interior of all cells from the outside environment and controls what enters and exits the cell."
+    definition:
+      "A biological membrane that separates the interior of all cells from the outside environment and controls what enters and exits the cell.",
   },
   {
     term: "Enzymes",
-    definition: "Proteins that catalyze biochemical reactions by lowering the activation energy required for the reaction to occur."
+    definition:
+      "Proteins that catalyze biochemical reactions by lowering the activation energy required for the reaction to occur.",
   },
   {
     term: "Homeostasis",
-    definition: "The tendency of a system, especially the physiological system of higher animals, to maintain internal stability."
+    definition:
+      "The tendency of a system, especially the physiological system of higher animals, to maintain internal stability.",
   },
   {
     term: "Genetics",
-    definition: "The study of heredity and the variation of inherited characteristics."
-  }
+    definition:
+      "The study of heredity and the variation of inherited characteristics.",
+  },
 ];
 
 export default function Flashcards() {
@@ -52,12 +67,12 @@ export default function Flashcards() {
   const [studiedCards, setStudiedCards] = useState<Set<number>>(new Set());
   const [flashcards, setFlashcards] = useState(sampleFlashcards);
 
-  const progress = ((studiedCards.size) / flashcards.length) * 100;
+  const progress = (studiedCards.size / flashcards.length) * 100;
 
   const handleCardFlip = () => {
     setIsFlipped(!isFlipped);
     if (!isFlipped) {
-      setStudiedCards(prev => new Set(prev).add(currentCard));
+      setStudiedCards((prev) => new Set(prev).add(currentCard));
     }
   };
 
@@ -93,7 +108,10 @@ export default function Flashcards() {
     <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-100 p-6">
       <div className="max-w-4xl mx-auto">
         <div className="mb-8">
-          <Link to="/" className="inline-flex items-center text-blue-600 hover:text-blue-700">
+          <Link
+            to="/"
+            className="inline-flex items-center text-blue-600 hover:text-blue-700"
+          >
             <Home className="h-4 w-4 mr-2" />
             Back to Home
           </Link>
@@ -102,47 +120,68 @@ export default function Flashcards() {
         <div className="text-center mb-8">
           <div className="flex items-center justify-center gap-2 mb-4">
             <Lightbulb className="h-8 w-8 text-blue-600" />
-            <h1 className="text-3xl font-bold text-gray-900">Digital Flashcards</h1>
+            <h1 className="text-3xl font-bold text-gray-900">
+              Digital Flashcards
+            </h1>
           </div>
           <p className="text-gray-600 max-w-2xl mx-auto leading-relaxed">
-            Master key concepts with interactive flashcards featuring 3D flip animations.
-            Perfect for memorizing terms, definitions, and important facts from your study material.
+            Master key concepts with interactive flashcards featuring 3D flip
+            animations. Perfect for memorizing terms, definitions, and important
+            facts from your study material.
           </p>
         </div>
 
         {/* Information Section */}
         <Card className="border-0 shadow-lg bg-white mb-8">
           <CardContent className="p-8">
-            <h2 className="text-2xl font-bold text-gray-900 text-center mb-6">How Flashcards Help You Learn</h2>
+            <h2 className="text-2xl font-bold text-gray-900 text-center mb-6">
+              How Flashcards Help You Learn
+            </h2>
 
             <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
               <div className="text-center">
                 <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mx-auto mb-3">
                   <Lightbulb className="h-6 w-6 text-blue-600" />
                 </div>
-                <h3 className="font-semibold text-gray-900 mb-2">Active Recall</h3>
-                <p className="text-sm text-gray-600">Test yourself to strengthen memory retention</p>
+                <h3 className="font-semibold text-gray-900 mb-2">
+                  Active Recall
+                </h3>
+                <p className="text-sm text-gray-600">
+                  Test yourself to strengthen memory retention
+                </p>
               </div>
               <div className="text-center">
                 <div className="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center mx-auto mb-3">
                   <RotateCcw className="h-6 w-6 text-green-600" />
                 </div>
-                <h3 className="font-semibold text-gray-900 mb-2">Spaced Repetition</h3>
-                <p className="text-sm text-gray-600">Review cards at optimal intervals for long-term retention</p>
+                <h3 className="font-semibold text-gray-900 mb-2">
+                  Spaced Repetition
+                </h3>
+                <p className="text-sm text-gray-600">
+                  Review cards at optimal intervals for long-term retention
+                </p>
               </div>
               <div className="text-center">
                 <div className="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center mx-auto mb-3">
                   <Shuffle className="h-6 w-6 text-purple-600" />
                 </div>
-                <h3 className="font-semibold text-gray-900 mb-2">Random Order</h3>
-                <p className="text-sm text-gray-600">Shuffle cards to avoid pattern memorization</p>
+                <h3 className="font-semibold text-gray-900 mb-2">
+                  Random Order
+                </h3>
+                <p className="text-sm text-gray-600">
+                  Shuffle cards to avoid pattern memorization
+                </p>
               </div>
               <div className="text-center">
                 <div className="w-12 h-12 bg-orange-100 rounded-lg flex items-center justify-center mx-auto mb-3">
                   <ChevronRight className="h-6 w-6 text-orange-600" />
                 </div>
-                <h3 className="font-semibold text-gray-900 mb-2">Progress Tracking</h3>
-                <p className="text-sm text-gray-600">Monitor your learning progress in real-time</p>
+                <h3 className="font-semibold text-gray-900 mb-2">
+                  Progress Tracking
+                </h3>
+                <p className="text-sm text-gray-600">
+                  Monitor your learning progress in real-time
+                </p>
               </div>
             </div>
           </CardContent>
@@ -178,13 +217,17 @@ export default function Flashcards() {
 
         {/* Flashcard */}
         <div className="flex justify-center mb-8">
-          <div 
+          <div
             className="relative w-full max-w-md h-80 cursor-pointer perspective-1000"
             onClick={handleCardFlip}
           >
-            <div className={`relative w-full h-full transition-transform duration-600 transform-style-preserve-3d ${isFlipped ? 'rotate-y-180' : ''}`}>
+            <div
+              className={`relative w-full h-full transition-transform duration-600 transform-style-preserve-3d ${isFlipped ? "rotate-y-180" : ""}`}
+            >
               {/* Front of card */}
-              <Card className={`absolute inset-0 w-full h-full border-0 shadow-2xl backface-hidden ${isFlipped ? 'invisible' : 'visible'}`}>
+              <Card
+                className={`absolute inset-0 w-full h-full border-0 shadow-2xl backface-hidden ${isFlipped ? "invisible" : "visible"}`}
+              >
                 <CardContent className="flex flex-col items-center justify-center h-full p-8 bg-gradient-to-br from-blue-600 to-indigo-600 text-white rounded-lg">
                   <div className="text-center">
                     <div className="mb-4">
@@ -201,7 +244,9 @@ export default function Flashcards() {
               </Card>
 
               {/* Back of card */}
-              <Card className={`absolute inset-0 w-full h-full border-0 shadow-2xl backface-hidden rotate-y-180 ${isFlipped ? 'visible' : 'invisible'}`}>
+              <Card
+                className={`absolute inset-0 w-full h-full border-0 shadow-2xl backface-hidden rotate-y-180 ${isFlipped ? "visible" : "invisible"}`}
+              >
                 <CardContent className="flex flex-col items-center justify-center h-full p-8 bg-gradient-to-br from-green-600 to-teal-600 text-white rounded-lg">
                   <div className="text-center">
                     <h3 className="text-lg font-semibold mb-4 text-green-100">
@@ -222,8 +267,8 @@ export default function Flashcards() {
 
         {/* Navigation */}
         <div className="flex justify-between items-center">
-          <Button 
-            variant="outline" 
+          <Button
+            variant="outline"
             onClick={handlePrevious}
             disabled={currentCard === 0}
             className="flex items-center gap-2"
@@ -241,18 +286,18 @@ export default function Flashcards() {
                   setIsFlipped(false);
                 }}
                 className={`w-3 h-3 rounded-full transition-colors ${
-                  index === currentCard 
-                    ? 'bg-blue-600' 
+                  index === currentCard
+                    ? "bg-blue-600"
                     : studiedCards.has(index)
-                    ? 'bg-green-400'
-                    : 'bg-gray-300'
+                      ? "bg-green-400"
+                      : "bg-gray-300"
                 }`}
               />
             ))}
           </div>
 
-          <Button 
-            variant="outline" 
+          <Button
+            variant="outline"
             onClick={handleNext}
             disabled={currentCard === flashcards.length - 1}
             className="flex items-center gap-2"
@@ -268,8 +313,13 @@ export default function Flashcards() {
             <Card className="border-0 shadow-lg bg-gradient-to-r from-green-50 to-emerald-50 border-green-200">
               <CardContent className="p-6">
                 <div className="text-green-700">
-                  <h3 className="text-xl font-bold mb-2">🎉 Congratulations!</h3>
-                  <p>You've studied all {flashcards.length} flashcards. Great job!</p>
+                  <h3 className="text-xl font-bold mb-2">
+                    🎉 Congratulations!
+                  </h3>
+                  <p>
+                    You've studied all {flashcards.length} flashcards. Great
+                    job!
+                  </p>
                 </div>
               </CardContent>
             </Card>

@@ -1,4 +1,4 @@
-import React, { createContext, useContext, useState, useEffect } from 'react';
+import React, { createContext, useContext, useState, useEffect } from "react";
 
 export interface UserProfile {
   id: string;
@@ -32,7 +32,7 @@ const UserContext = createContext<UserContextType | undefined>(undefined);
 export const useUser = () => {
   const context = useContext(UserContext);
   if (context === undefined) {
-    throw new Error('useUser must be used within a UserProvider');
+    throw new Error("useUser must be used within a UserProvider");
   }
   return context;
 };
@@ -48,14 +48,14 @@ export const UserProvider: React.FC<UserProviderProps> = ({ children }) => {
   // Load user data from localStorage on component mount
   useEffect(() => {
     try {
-      const savedUser = localStorage.getItem('studygenie_user');
+      const savedUser = localStorage.getItem("studygenie_user");
       if (savedUser) {
         const userData = JSON.parse(savedUser);
         setUser(userData);
       }
     } catch (error) {
-      console.error('Error loading user data:', error);
-      localStorage.removeItem('studygenie_user');
+      console.error("Error loading user data:", error);
+      localStorage.removeItem("studygenie_user");
     } finally {
       setIsLoading(false);
     }
@@ -64,9 +64,9 @@ export const UserProvider: React.FC<UserProviderProps> = ({ children }) => {
   // Save user data to localStorage whenever user state changes
   useEffect(() => {
     if (user) {
-      localStorage.setItem('studygenie_user', JSON.stringify(user));
+      localStorage.setItem("studygenie_user", JSON.stringify(user));
     } else {
-      localStorage.removeItem('studygenie_user');
+      localStorage.removeItem("studygenie_user");
     }
   }, [user]);
 
@@ -76,7 +76,7 @@ export const UserProvider: React.FC<UserProviderProps> = ({ children }) => {
 
   const logout = () => {
     setUser(null);
-    localStorage.removeItem('studygenie_user');
+    localStorage.removeItem("studygenie_user");
   };
 
   const updateProfile = (updates: Partial<UserProfile>) => {
@@ -95,9 +95,5 @@ export const UserProvider: React.FC<UserProviderProps> = ({ children }) => {
     isLoading,
   };
 
-  return (
-    <UserContext.Provider value={value}>
-      {children}
-    </UserContext.Provider>
-  );
+  return <UserContext.Provider value={value}>{children}</UserContext.Provider>;
 };
