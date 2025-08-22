@@ -201,6 +201,43 @@ export default function Quiz() {
           </Link>
         </div>
 
+        {/* Information Section */}
+        <Card className="border-0 shadow-lg bg-white mb-8">
+          <CardContent className="p-8">
+            <div className="text-center mb-6">
+              <h2 className="text-2xl font-bold text-gray-900 mb-4">Interactive Quiz System</h2>
+              <p className="text-gray-600 max-w-3xl mx-auto leading-relaxed">
+                Test your understanding with AI-generated multiple choice questions. Get instant feedback
+                and detailed explanations to reinforce your learning.
+              </p>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+              <div className="text-center">
+                <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mx-auto mb-3">
+                  <Brain className="h-6 w-6 text-blue-600" />
+                </div>
+                <h3 className="font-semibold text-gray-900 mb-2">Smart Questions</h3>
+                <p className="text-sm text-gray-600">AI-generated questions that test key concepts and understanding</p>
+              </div>
+              <div className="text-center">
+                <div className="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center mx-auto mb-3">
+                  <CheckCircle className="h-6 w-6 text-green-600" />
+                </div>
+                <h3 className="font-semibold text-gray-900 mb-2">Instant Feedback</h3>
+                <p className="text-sm text-gray-600">Get immediate results with explanations for wrong answers</p>
+              </div>
+              <div className="text-center">
+                <div className="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center mx-auto mb-3">
+                  <RotateCcw className="h-6 w-6 text-purple-600" />
+                </div>
+                <h3 className="font-semibold text-gray-900 mb-2">Review & Retry</h3>
+                <p className="text-sm text-gray-600">Review your answers and retake quizzes to improve understanding</p>
+              </div>
+            </div>
+          </CardContent>
+        </Card>
+
         <Card className="border-0 shadow-2xl bg-white">
           <CardHeader>
             <div className="flex justify-between items-center mb-4">
