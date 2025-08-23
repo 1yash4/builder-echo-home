@@ -300,10 +300,10 @@ export default function Index() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold text-gray-900 mb-4">
-              How StudyGenie Works
+              How Chanakya Works
             </h2>
             <p className="text-xl text-gray-600">
-              Simple steps to transform your study experience
+              Ancient wisdom meets modern AI for effective learning
             </p>
           </div>
 
@@ -385,15 +385,15 @@ export default function Index() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col md:flex-row justify-between items-center">
             <div className="flex items-center space-x-2 mb-4 md:mb-0">
-              <div className="w-8 h-8 bg-gradient-to-br from-blue-600 to-indigo-600 rounded-lg flex items-center justify-center">
+              <div className="w-8 h-8 bg-gradient-to-br from-pink-500 to-blue-500 rounded-lg flex items-center justify-center">
                 <GraduationCap className="h-5 w-5 text-white" />
               </div>
-              <span className="text-xl font-bold bg-gradient-to-r from-blue-400 to-indigo-400 bg-clip-text text-transparent">
-                StudyGenie
+              <span className="text-xl font-bold bg-gradient-to-r from-pink-400 to-blue-400 bg-clip-text text-transparent">
+                Chanakya
               </span>
             </div>
             <div className="text-sm text-gray-400">
-              © 2024 StudyGenie. Empowering students with AI-powered learning.
+              © 2024 Chanakya. Empowering Indian students with ancient wisdom & modern AI.
             </div>
           </div>
         </div>
