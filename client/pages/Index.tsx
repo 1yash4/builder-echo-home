@@ -67,23 +67,6 @@ export default function Index() {
     },
   ];
 
-  const stats = [
-    {
-      label: "Indian Students",
-      value: "50K+",
-      icon: <Users className="h-5 w-5" />,
-    },
-    {
-      label: "Study Sessions",
-      value: "500K+",
-      icon: <BookOpen className="h-5 w-5" />,
-    },
-    {
-      label: "Success Rate",
-      value: "94%",
-      icon: <Trophy className="h-5 w-5" />,
-    },
-  ];
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-pink-50 via-blue-50 to-purple-100">
@@ -202,20 +185,6 @@ export default function Index() {
               </Button>
             </div>
 
-            {/* Stats */}
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-3xl mx-auto">
-              {stats.map((stat, index) => (
-                <div key={index} className="text-center">
-                  <div className="flex items-center justify-center mb-2 text-pink-600">
-                    {stat.icon}
-                  </div>
-                  <div className="text-3xl font-bold text-gray-900">
-                    {stat.value}
-                  </div>
-                  <div className="text-sm text-gray-600">{stat.label}</div>
-                </div>
-              ))}
-            </div>
           </div>
         </div>
       </section>
