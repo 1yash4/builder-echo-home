@@ -91,17 +91,17 @@ export default function Index() {
   ];
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-100">
+    <div className="min-h-screen bg-gradient-to-br from-pink-50 via-blue-50 to-purple-100">
       {/* Navigation */}
       <nav className="border-b bg-white/80 backdrop-blur-md sticky top-0 z-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-16">
             <div className="flex items-center space-x-2">
-              <div className="w-8 h-8 bg-gradient-to-br from-blue-600 to-indigo-600 rounded-lg flex items-center justify-center">
+              <div className="w-8 h-8 bg-gradient-to-br from-pink-500 to-blue-500 rounded-lg flex items-center justify-center">
                 <GraduationCap className="h-5 w-5 text-white" />
               </div>
-              <span className="text-xl font-bold bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">
-                StudyGenie
+              <span className="text-xl font-bold bg-gradient-to-r from-pink-400 to-blue-400 bg-clip-text text-transparent">
+                Chanakya
               </span>
             </div>
             <div className="hidden md:flex items-center space-x-6">
@@ -211,7 +211,7 @@ export default function Index() {
             <div className="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-4xl mx-auto">
               {stats.map((stat, index) => (
                 <div key={index} className="text-center">
-                  <div className="flex items-center justify-center mb-2 text-blue-600">
+                  <div className="flex items-center justify-center mb-2 text-pink-600">
                     {stat.icon}
                   </div>
                   <div className="text-3xl font-bold text-gray-900">
@@ -266,9 +266,9 @@ export default function Index() {
                 <Link key={index} to={getFeatureLink(feature.title)}>
                   <Card className="border-0 shadow-lg hover:shadow-xl transition-all duration-300 bg-white cursor-pointer transform hover:scale-105">
                     <CardHeader className="text-center pb-4">
-                      <div className="w-16 h-16 bg-gradient-to-br from-blue-600 to-indigo-600 rounded-xl flex items-center justify-center mx-auto mb-4 text-white">
-                        {feature.icon}
-                      </div>
+                      <div className="w-16 h-16 bg-gradient-to-br from-pink-500 to-blue-500 rounded-xl flex items-center justify-center mx-auto mb-4 text-white">
+                    {feature.icon}
+                  </div>
                       <CardTitle className="text-xl font-bold text-gray-900">
                         {feature.title}
                       </CardTitle>
