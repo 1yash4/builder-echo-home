@@ -190,9 +190,10 @@ export default function Index() {
 
       {/* Features Section */}
       <section
-        className="py-20 bg-gradient-to-br from-gray-50 to-blue-50"
+        className="py-20 bg-gray-50 relative"
         id="features"
       >
+        <div className={"absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg width=\"40\" height=\"40\" viewBox=\"0 0 40 40\" xmlns=\"http://www.w3.org/2000/svg\"%3E%3Cg fill=\"%23ffffff\" fill-opacity=\"0.3\"%3E%3Cpath d=\"M20 20c0 0 0-8 0-8s8 0 8 0 0 8 0 8-8 0-8 0z\"/%3E%3C/g%3E%3C/svg%3E')] opacity-20"}></div>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold text-gray-900 mb-4">
@@ -319,7 +320,7 @@ export default function Index() {
           <h2 className="text-4xl font-bold text-white mb-6">
             Ready to Transform Your Study Experience?
           </h2>
-          <p className="text-xl text-blue-100 mb-10 leading-relaxed">
+          <p className="text-xl text-gray-200 mb-10 leading-relaxed">
             Join thousands of students who are already using StudyGenie to excel
             in their studies
           </p>
