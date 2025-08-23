@@ -147,7 +147,7 @@ export default function Index() {
               className="mb-4 px-4 py-2 bg-gray-100 text-gray-700 border-gray-200"
             >
               <Sparkles className="h-4 w-4 mr-2" />
-              AI-Powered Study Assistant
+              AI-Powered Learning Platform
             </Badge>
 
             <h1 className="text-5xl md:text-6xl font-bold text-gray-900 mb-6 leading-tight">
@@ -200,8 +200,7 @@ export default function Index() {
               Everything You Need to Excel
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              StudyGenie combines cutting-edge AI with proven learning
-              techniques to help you master any subject
+              Chanakya combines ancient wisdom with cutting-edge AI to help you master any subject with personalized learning
             </p>
           </div>
 
@@ -321,7 +320,7 @@ export default function Index() {
             Ready to Transform Your Study Experience?
           </h2>
           <p className="text-xl text-gray-200 mb-10 leading-relaxed">
-            Join thousands of students who are already using StudyGenie to excel
+            Join thousands of Indian students who are already using Chanakya to excel
             in their studies
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
