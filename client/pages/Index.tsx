@@ -69,7 +69,7 @@ export default function Index() {
 
   const stats = [
     {
-      label: "Students Helped",
+      label: "Indian Students",
       value: "50K+",
       icon: <Users className="h-5 w-5" />,
     },
@@ -77,11 +77,6 @@ export default function Index() {
       label: "Study Sessions",
       value: "500K+",
       icon: <BookOpen className="h-5 w-5" />,
-    },
-    {
-      label: "Quizzes Generated",
-      value: "2M+",
-      icon: <Brain className="h-5 w-5" />,
     },
     {
       label: "Success Rate",
