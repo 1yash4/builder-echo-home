@@ -133,10 +133,10 @@ export default function Index() {
       </nav>
 
       {/* Hero Section */}
-      <section className="relative pt-20 pb-32 overflow-hidden">
+      <section className="relative pt-20 pb-32 overflow-hidden bg-white">
         <div
           className={
-            'absolute inset-0 bg-[url(\'data:image/svg+xml,%3Csvg width="60" height="60" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg"%3E%3Cg fill="none" fill-rule="evenodd"%3E%3Cg fill="%239CA3AF" fill-opacity="0.1"%3E%3Ccircle cx="7" cy="7" r="1"/%3E%3C/g%3E%3C/g%3E%3C/svg%3E\')] opacity-40'
+            'absolute inset-0 bg-[url(\'data:image/svg+xml,%3Csvg width="60" height="60" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg"%3E%3Cg fill="none" fill-rule="evenodd"%3E%3Cg fill="%236B7280" fill-opacity="0.08"%3E%3Ccircle cx="7" cy="7" r="1"/%3E%3C/g%3E%3C/g%3E%3C/svg%3E\')] opacity-50'
           }
         ></div>
 
@@ -144,7 +144,7 @@ export default function Index() {
           <div className="text-center">
             <Badge
               variant="secondary"
-              className="mb-4 px-4 py-2 bg-blue-100 text-blue-700 border-blue-200"
+              className="mb-4 px-4 py-2 bg-gray-100 text-gray-700 border-gray-200"
             >
               <Sparkles className="h-4 w-4 mr-2" />
               AI-Powered Study Assistant
@@ -328,7 +328,7 @@ export default function Index() {
             <Button
               size="lg"
               variant="secondary"
-              className="bg-white text-blue-600 hover:bg-gray-100 px-8 py-4 text-lg"
+              className="bg-white text-gray-800 hover:bg-gray-100 px-8 py-4 text-lg"
             >
               Start Learning for Free
               <ChevronRight className="ml-2 h-5 w-5" />
@@ -336,7 +336,7 @@ export default function Index() {
             <Button
               size="lg"
               variant="outline"
-              className="border-white text-white hover:bg-white hover:text-blue-600 px-8 py-4 text-lg"
+              className="border-white text-white hover:bg-white hover:text-gray-800 px-8 py-4 text-lg"
             >
               Watch Demo
             </Button>
