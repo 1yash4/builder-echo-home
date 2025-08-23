@@ -57,6 +57,8 @@ interface Mentor {
   experience: string;
   languages: string[];
   hourlyRate: number;
+  tier: "Tier 1" | "Tier 2" | "Tier 3";
+  tierDescription: string;
   profileImage: string;
   description: string;
   specializations: string[];
