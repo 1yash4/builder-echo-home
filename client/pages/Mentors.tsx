@@ -89,18 +89,20 @@ const mentors: Mentor[] = [
   },
   {
     id: "2",
-    name: "Prof. Michael Chen",
-    title: "Physics Researcher",
+    name: "Prof. Rajesh Gupta",
+    title: "Physics Expert",
     subjects: ["Physics", "Chemistry", "Engineering"],
     rating: 4.8,
     totalSessions: 980,
     experience: "12 years",
-    languages: ["English", "Mandarin"],
-    hourlyRate: 50,
+    languages: ["English", "Hindi", "Bengali"],
+    hourlyRate: 1200,
+    tier: "Tier 1",
+    tierDescription: "Permanent mentorship - ₹15,000/month",
     profileImage:
       "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=150&h=150&fit=crop&crop=face",
     description:
-      "Former NASA researcher with a passion for teaching. I help students understand the beauty of physics through real-world applications.",
+      "Former ISRO scientist with a passion for teaching. Helps students understand physics through real-world applications and ancient Indian scientific principles.",
     specializations: [
       "Quantum Physics",
       "Mechanics",
