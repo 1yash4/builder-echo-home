@@ -20,7 +20,6 @@ import {
   GraduationCap,
   FileText,
   Users,
-  Trophy,
   LogOut,
   User,
 } from "lucide-react";
