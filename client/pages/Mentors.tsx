@@ -69,19 +69,21 @@ interface Mentor {
 const mentors: Mentor[] = [
   {
     id: "1",
-    name: "Dr. Sarah Johnson",
+    name: "Dr. Priya Sharma",
     title: "Mathematics Professor",
     subjects: ["Mathematics", "Statistics", "Calculus"],
     rating: 4.9,
     totalSessions: 1250,
     experience: "8 years",
-    languages: ["English", "Spanish"],
-    hourlyRate: 45,
+    languages: ["English", "Hindi"],
+    hourlyRate: 800,
+    tier: "Tier 2",
+    tierDescription: "Weekly sessions - ₹3,200/week",
     profileImage:
       "https://images.unsplash.com/photo-1494790108755-2616b612b5c5?w=150&h=150&fit=crop&crop=face",
     description:
-      "Passionate about making complex mathematical concepts simple and understandable. Specialized in helping students overcome math anxiety.",
-    specializations: ["Algebra", "Geometry", "Trigonometry", "AP Math"],
+      "IIT Delhi alumna passionate about making complex mathematical concepts simple. Specialized in helping students overcome math anxiety with traditional Indian methods.",
+    specializations: ["Algebra", "Geometry", "Trigonometry", "JEE Math"],
     availability: "Mon-Fri 9AM-6PM",
     verified: true,
   },
