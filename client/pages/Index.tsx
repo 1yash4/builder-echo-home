@@ -166,7 +166,7 @@ export default function Index() {
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-16">
               <Button
                 size="lg"
-                className="bg-gradient-to-r from-blue-600 to-indigo-600 text-white px-8 py-4 text-lg"
+                className="bg-gradient-to-r from-gray-700 to-gray-900 text-white px-8 py-4 text-lg"
                 asChild
               >
                 <a href="#features">
@@ -177,7 +177,7 @@ export default function Index() {
               <Button
                 variant="outline"
                 size="lg"
-                className="px-8 py-4 text-lg"
+                className="px-8 py-4 text-lg border-gray-300 text-gray-600 hover:bg-gray-50"
                 asChild
               >
                 <a href="#features">Explore Features</a>
