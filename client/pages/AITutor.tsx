@@ -132,17 +132,17 @@ export default function AITutor() {
   ];
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-100">
+    <div className="min-h-screen bg-gradient-to-br from-pink-50 via-blue-50 to-blue-100">
       {/* Navigation */}
       <nav className="border-b bg-white/80 backdrop-blur-md sticky top-0 z-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-16">
             <Link to="/" className="flex items-center space-x-2">
-              <div className="w-8 h-8 bg-gradient-to-br from-blue-600 to-indigo-600 rounded-lg flex items-center justify-center">
+              <div className="w-8 h-8 bg-gradient-to-br from-pink-500 to-blue-500 rounded-lg flex items-center justify-center">
                 <GraduationCap className="h-5 w-5 text-white" />
               </div>
-              <span className="text-xl font-bold bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">
-                StudyGenie
+              <span className="text-xl font-bold bg-gradient-to-r from-pink-500 to-blue-500 bg-clip-text text-transparent">
+                Chanakya
               </span>
             </Link>
             <Link
@@ -178,7 +178,7 @@ export default function AITutor() {
               className="border-0 shadow-lg bg-white text-center"
             >
               <CardContent className="p-6">
-                <div className="w-12 h-12 bg-gradient-to-br from-blue-600 to-indigo-600 rounded-lg flex items-center justify-center mx-auto mb-4 text-white">
+                <div className="w-12 h-12 bg-gradient-to-br from-pink-500 to-blue-500 rounded-lg flex items-center justify-center mx-auto mb-4 text-white">
                   {capability.icon}
                 </div>
                 <h3 className="font-semibold text-gray-900 mb-2">
@@ -292,7 +292,7 @@ export default function AITutor() {
                   <Button
                     onClick={handleSendMessage}
                     disabled={!message.trim() || isTyping}
-                    className="bg-gradient-to-r from-blue-600 to-indigo-600"
+                    className="bg-gradient-to-r from-pink-500 to-blue-500"
                   >
                     <Send className="h-4 w-4" />
                   </Button>
