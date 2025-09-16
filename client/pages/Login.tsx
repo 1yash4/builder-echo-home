@@ -170,7 +170,7 @@ export default function Login() {
       id: "demo-user",
       firstName: "Demo",
       lastName: "Student",
-      email: "demo@studygenie.com",
+      email: "demo@chanakya.com",
       dateOfBirth: "2005-01-15",
       standard: "10th Grade",
       subjects: ["Mathematics", "Physics", "Chemistry", "Biology"],
