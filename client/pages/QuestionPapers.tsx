@@ -187,6 +187,54 @@ const questionDatabase: QuestionData[] = [
     answer:
       "The condition for tangency is that the perpendicular distance from the center (0,0) to the line is equal to the radius 'a'. This gives the value of c as c = ±a√(1+m²).",
   },
+  {
+    type: "question_answer",
+    year: 2023,
+    standard: "University",
+    subject: "Computer Science Engineering",
+    topic: "Operating Systems",
+    difficulty: "medium",
+    question:
+      "Explain the difference between a process and a thread. Why are threads considered lightweight?",
+    answer:
+      "A process is an independent program in execution with its own address space, while a thread is a lightweight unit of execution within a process that shares the process's address space. Threads are considered lightweight because creating and switching between threads requires fewer resources than processes due to shared memory and OS structures.",
+  },
+  {
+    type: "question_answer",
+    year: 2022,
+    standard: "University",
+    subject: "Mechanical Engineering",
+    topic: "Thermodynamics",
+    difficulty: "medium",
+    question:
+      "State the Second Law of Thermodynamics and explain the concept of entropy with an example.",
+    answer:
+      "The Second Law states that the total entropy of an isolated system can never decrease over time. Entropy measures disorder; for example, heat flows spontaneously from a hot body to a cold one, increasing total entropy, and the reverse process requires external work.",
+  },
+  {
+    type: "question_answer",
+    year: 2021,
+    standard: "University",
+    subject: "Electrical Engineering",
+    topic: "Circuit Theory",
+    difficulty: "easy",
+    question:
+      "For a series RC circuit with R=1kΩ and C=100µF connected to a 10V DC source, what is the time constant and the capacitor voltage at t=τ?",
+    answer:
+      "Time constant τ = RC = 1kΩ × 100µF = 0.1 s. The capacitor voltage at t=τ is Vc = V(1 − e^{-1}) ≈ 10 × 0.632 = 6.32 V.",
+  },
+  {
+    type: "question_answer",
+    year: 2020,
+    standard: "University",
+    subject: "Civil Engineering",
+    topic: "Strength of Materials",
+    difficulty: "medium",
+    question:
+      "Define stress and strain. A steel rod of length 2 m and cross-sectional area 100 mm² is subjected to a tensile force of 20 kN. Find the stress and strain (E = 200 GPa).",
+    answer:
+      "Stress = Force/Area = 20,000 N / (100 × 10^{-6} m²) = 200 MPa. Strain = Stress/E = 200 MPa / 200 GPa = 0.001.",
+  },
 ];
 
 export default function QuestionPapers() {
@@ -260,17 +308,17 @@ export default function QuestionPapers() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-100">
+    <div className="min-h-screen bg-gradient-to-br from-pink-50 via-blue-50 to-blue-100">
       {/* Navigation */}
       <nav className="border-b bg-white/80 backdrop-blur-md sticky top-0 z-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-16">
             <Link to="/" className="flex items-center space-x-2">
-              <div className="w-8 h-8 bg-gradient-to-br from-blue-600 to-indigo-600 rounded-lg flex items-center justify-center">
+              <div className="w-8 h-8 bg-gradient-to-br from-pink-500 to-blue-500 rounded-lg flex items-center justify-center">
                 <GraduationCap className="h-5 w-5 text-white" />
               </div>
-              <span className="text-xl font-bold bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">
-                StudyGenie
+              <span className="text-xl font-bold bg-gradient-to-r from-pink-500 to-blue-500 bg-clip-text text-transparent">
+                Chanakya
               </span>
             </Link>
             <div className="flex items-center space-x-4">
@@ -571,7 +619,7 @@ export default function QuestionPapers() {
         {/* Stats */}
         {filteredQuestions.length > 0 && (
           <div className="mt-12 grid grid-cols-1 md:grid-cols-3 gap-6">
-            <Card className="border-0 shadow-lg bg-gradient-to-r from-blue-600 to-indigo-600 text-white">
+            <Card className="border-0 shadow-lg bg-gradient-to-r from-pink-500 to-blue-500 text-white">
               <CardContent className="p-6 text-center">
                 <div className="text-3xl font-bold mb-2">
                   {filteredQuestions.length}
