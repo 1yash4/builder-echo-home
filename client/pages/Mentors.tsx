@@ -26,6 +26,7 @@ import {
   DialogTrigger,
 } from "@/components/ui/dialog";
 import { useUser } from "@/contexts/UserContext";
+import { mentors, Mentor } from "@/data/mentors";
 import {
   Home,
   Video,
@@ -47,156 +48,6 @@ import {
   User,
 } from "lucide-react";
 
-interface Mentor {
-  id: string;
-  name: string;
-  title: string;
-  subjects: string[];
-  rating: number;
-  totalSessions: number;
-  experience: string;
-  languages: string[];
-  hourlyRate: number;
-  tier: "Tier 1" | "Tier 2" | "Tier 3";
-  tierDescription: string;
-  profileImage: string;
-  description: string;
-  specializations: string[];
-  availability: string;
-  verified: boolean;
-}
-
-const mentors: Mentor[] = [
-  {
-    id: "1",
-    name: "Dr. Priya Sharma",
-    title: "Mathematics Professor",
-    subjects: ["Mathematics", "Statistics", "Calculus"],
-    rating: 4.9,
-    totalSessions: 1250,
-    experience: "8 years",
-    languages: ["English", "Hindi"],
-    hourlyRate: 800,
-    tier: "Tier 2",
-    tierDescription: "Weekly sessions - ₹3,200/week",
-    profileImage:
-      "https://images.unsplash.com/photo-1494790108755-2616b612b5c5?w=150&h=150&fit=crop&crop=face",
-    description:
-      "IIT Delhi alumna passionate about making complex mathematical concepts simple. Specialized in helping students overcome math anxiety with traditional Indian methods.",
-    specializations: ["Algebra", "Geometry", "Trigonometry", "JEE Math"],
-    availability: "Mon-Fri 9AM-6PM",
-    verified: true,
-  },
-  {
-    id: "2",
-    name: "Prof. Rajesh Gupta",
-    title: "Physics Expert",
-    subjects: ["Physics", "Chemistry", "Engineering"],
-    rating: 4.8,
-    totalSessions: 980,
-    experience: "12 years",
-    languages: ["English", "Hindi", "Bengali"],
-    hourlyRate: 1200,
-    tier: "Tier 1",
-    tierDescription: "Permanent mentorship - ₹15,000/month",
-    profileImage:
-      "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=150&h=150&fit=crop&crop=face",
-    description:
-      "Former ISRO scientist with a passion for teaching. Helps students understand physics through real-world applications and ancient Indian scientific principles.",
-    specializations: [
-      "Quantum Physics",
-      "Mechanics",
-      "Thermodynamics",
-      "AP Physics",
-    ],
-    availability: "Tue-Sat 2PM-9PM",
-    verified: true,
-  },
-  {
-    id: "3",
-    name: "Ms. Emily Rodriguez",
-    title: "Biology Expert",
-    subjects: ["Biology", "Chemistry", "Environmental Science"],
-    rating: 4.9,
-    totalSessions: 1100,
-    experience: "6 years",
-    languages: ["English", "French"],
-    hourlyRate: 700,
-    tier: "Tier 2",
-    tierDescription: "Bi-weekly sessions - ₹2,800/2 weeks",
-    profileImage:
-      "https://images.unsplash.com/photo-1559839734-2b71ea197ec2?w=150&h=150&fit=crop&crop=face",
-    description:
-      "Medical school graduate specializing in life sciences. I make biology fascinating by connecting it to everyday life and medical applications.",
-    specializations: ["Cell Biology", "Genetics", "Anatomy", "MCAT Prep"],
-    availability: "Mon-Thu 4PM-10PM",
-    verified: true,
-  },
-  {
-    id: "4",
-    name: "Dr. James Wilson",
-    title: "Computer Science Mentor",
-    subjects: ["Computer Science", "Programming", "Mathematics"],
-    rating: 4.7,
-    totalSessions: 850,
-    experience: "10 years",
-    languages: ["English"],
-    hourlyRate: 55,
-    profileImage:
-      "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&h=150&fit=crop&crop=face",
-    description:
-      "Senior software engineer at tech companies. I help students master programming and prepare for technical interviews.",
-    specializations: ["Python", "JavaScript", "Data Structures", "Algorithms"],
-    availability: "Weekends 10AM-8PM",
-    verified: true,
-  },
-  {
-    id: "5",
-    name: "Prof. Lisa Anderson",
-    title: "Chemistry Specialist",
-    subjects: ["Chemistry", "Biochemistry", "Organic Chemistry"],
-    rating: 4.8,
-    totalSessions: 1300,
-    experience: "15 years",
-    languages: ["English", "German"],
-    hourlyRate: 48,
-    profileImage:
-      "https://images.unsplash.com/photo-1580489944761-15a19d654956?w=150&h=150&fit=crop&crop=face",
-    description:
-      "University professor with extensive research background. I help students understand chemistry through interactive experiments and real examples.",
-    specializations: [
-      "Organic Chemistry",
-      "Inorganic Chemistry",
-      "Physical Chemistry",
-      "AP Chemistry",
-    ],
-    availability: "Mon-Fri 1PM-7PM",
-    verified: true,
-  },
-  {
-    id: "6",
-    name: "Mr. David Kumar",
-    title: "English Literature Tutor",
-    subjects: ["English", "Literature", "Writing"],
-    rating: 4.6,
-    totalSessions: 720,
-    experience: "5 years",
-    languages: ["English", "Hindi"],
-    hourlyRate: 35,
-    profileImage:
-      "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=150&h=150&fit=crop&crop=face",
-    description:
-      "Published author and literature enthusiast. I help students develop critical thinking and writing skills through engaging discussions.",
-    specializations: [
-      "Essay Writing",
-      "Poetry Analysis",
-      "Grammar",
-      "SAT English",
-    ],
-    availability: "Daily 6PM-11PM",
-    verified: false,
-  },
-];
 
 export default function Mentors() {
   const { user, isAuthenticated } = useUser();
@@ -316,7 +167,7 @@ export default function Mentors() {
               <div className="flex justify-between text-sm">
                 <span className="text-gray-600">Session Rate:</span>
                 <span className="font-semibold">
-                  ${selectedMentor.hourlyRate}/hour
+                  ₹{selectedMentor.hourlyRate}/hour
                 </span>
               </div>
               <div className="flex justify-between text-sm">
@@ -711,7 +562,7 @@ export default function Mentors() {
                   <div className="border-t pt-4">
                     <div className="flex items-center justify-between mb-3">
                       <span className="text-lg font-semibold text-gray-900">
-                        ${mentor.hourlyRate}/hour
+                        ₹{mentor.hourlyRate}/hour
                       </span>
                       <span className="text-sm text-gray-600">
                         {mentor.availability}
