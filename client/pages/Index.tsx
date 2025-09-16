@@ -139,7 +139,7 @@ export default function Index() {
               ) : (
                 <Button
                   variant="default"
-                  className="bg-gradient-to-r from-blue-600 to-indigo-600"
+                  className="bg-gradient-to-r from-pink-500 to-blue-500"
                   asChild
                 >
                   <Link to="/login">Get Started</Link>
@@ -174,7 +174,7 @@ export default function Index() {
 
             <h1 className="text-5xl md:text-6xl font-bold text-gray-900 mb-6 leading-tight">
               Transform Your Study
-              <span className="block bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">
+              <span className="block bg-gradient-to-r from-pink-500 to-blue-500 bg-clip-text text-transparent">
                 Material Into Success
               </span>
             </h1>
@@ -286,7 +286,7 @@ export default function Index() {
                       <div className="text-center">
                         <Button
                           size="sm"
-                          className="bg-gradient-to-r from-blue-600 to-indigo-600"
+                          className="bg-gradient-to-r from-pink-500 to-blue-500"
                         >
                           Try Now
                           <ChevronRight className="ml-2 h-4 w-4" />
