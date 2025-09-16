@@ -48,7 +48,6 @@ import {
   User,
 } from "lucide-react";
 
-
 export default function Mentors() {
   const { user, isAuthenticated } = useUser();
   const [selectedSubject, setSelectedSubject] = useState<string>("");

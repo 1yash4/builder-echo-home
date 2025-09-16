@@ -30,14 +30,16 @@ export const mentors: Mentor[] = [
     hourlyRate: 500,
     tier: "Tier 2",
     tierDescription: "Weekly sessions - ₹3,200/week",
-    profileImage: "https://images.unsplash.com/photo-1494790108755-2616b612b5c5?w=150&h=150&fit=crop&crop=face",
-    description: "IIT Delhi alumna passionate about making complex mathematical concepts simple. Specialized in helping students overcome math anxiety with traditional Indian methods.",
+    profileImage:
+      "https://images.unsplash.com/photo-1494790108755-2616b612b5c5?w=150&h=150&fit=crop&crop=face",
+    description:
+      "IIT Delhi alumna passionate about making complex mathematical concepts simple. Specialized in helping students overcome math anxiety with traditional Indian methods.",
     specializations: ["Algebra", "Geometry", "Trigonometry", "JEE Math"],
     availability: "Mon-Fri 9AM-6PM",
-    verified: true
+    verified: true,
   },
   {
-    id: "2", 
+    id: "2",
     name: "Prof. Rajesh Gupta",
     title: "Physics Expert",
     subjects: ["Physics", "Chemistry", "Engineering"],
@@ -48,11 +50,18 @@ export const mentors: Mentor[] = [
     hourlyRate: 400,
     tier: "Tier 1",
     tierDescription: "Permanent mentorship - ₹12,000/month",
-    profileImage: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=150&h=150&fit=crop&crop=face",
-    description: "Former ISRO scientist with a passion for teaching. Helps students understand physics through real-world applications and ancient Indian scientific principles.",
-    specializations: ["Quantum Physics", "Mechanics", "Thermodynamics", "JEE Physics"],
+    profileImage:
+      "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=150&h=150&fit=crop&crop=face",
+    description:
+      "Former ISRO scientist with a passion for teaching. Helps students understand physics through real-world applications and ancient Indian scientific principles.",
+    specializations: [
+      "Quantum Physics",
+      "Mechanics",
+      "Thermodynamics",
+      "JEE Physics",
+    ],
     availability: "Tue-Sat 2PM-9PM",
-    verified: true
+    verified: true,
   },
   {
     id: "3",
@@ -66,11 +75,13 @@ export const mentors: Mentor[] = [
     hourlyRate: 400,
     tier: "Tier 2",
     tierDescription: "Bi-weekly sessions - ₹2,800/2 weeks",
-    profileImage: "https://images.unsplash.com/photo-1559839734-2b71ea197ec2?w=150&h=150&fit=crop&crop=face",
-    description: "AIIMS graduate specializing in life sciences. Makes biology fascinating by connecting it to everyday life and Ayurvedic principles.",
+    profileImage:
+      "https://images.unsplash.com/photo-1559839734-2b71ea197ec2?w=150&h=150&fit=crop&crop=face",
+    description:
+      "AIIMS graduate specializing in life sciences. Makes biology fascinating by connecting it to everyday life and Ayurvedic principles.",
     specializations: ["Cell Biology", "Genetics", "Anatomy", "NEET Prep"],
     availability: "Mon-Thu 4PM-10PM",
-    verified: true
+    verified: true,
   },
   {
     id: "4",
@@ -84,11 +95,18 @@ export const mentors: Mentor[] = [
     hourlyRate: 350,
     tier: "Tier 1",
     tierDescription: "Permanent coding mentorship - ₹18,000/month",
-    profileImage: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&h=150&fit=crop&crop=face",
-    description: "Senior software engineer at top Indian tech companies. Helps students master programming and prepare for technical interviews with industry insights.",
-    specializations: ["Python", "JavaScript", "Data Structures", "System Design"],
+    profileImage:
+      "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&h=150&fit=crop&crop=face",
+    description:
+      "Senior software engineer at top Indian tech companies. Helps students master programming and prepare for technical interviews with industry insights.",
+    specializations: [
+      "Python",
+      "JavaScript",
+      "Data Structures",
+      "System Design",
+    ],
     availability: "Weekends 10AM-8PM",
-    verified: true
+    verified: true,
   },
   {
     id: "5",
@@ -102,11 +120,18 @@ export const mentors: Mentor[] = [
     hourlyRate: 550,
     tier: "Tier 1",
     tierDescription: "Complete chemistry mastery - ₹20,000/month",
-    profileImage: "https://images.unsplash.com/photo-1580489944761-15a19d654956?w=150&h=150&fit=crop&crop=face",
-    description: "IISc professor with extensive research background. Teaches chemistry through interactive experiments and connects concepts to traditional Indian knowledge.",
-    specializations: ["Organic Chemistry", "Inorganic Chemistry", "Physical Chemistry", "JEE Chemistry"],
+    profileImage:
+      "https://images.unsplash.com/photo-1580489944761-15a19d654956?w=150&h=150&fit=crop&crop=face",
+    description:
+      "IISc professor with extensive research background. Teaches chemistry through interactive experiments and connects concepts to traditional Indian knowledge.",
+    specializations: [
+      "Organic Chemistry",
+      "Inorganic Chemistry",
+      "Physical Chemistry",
+      "JEE Chemistry",
+    ],
     availability: "Mon-Fri 1PM-7PM",
-    verified: true
+    verified: true,
   },
   {
     id: "6",
@@ -120,11 +145,18 @@ export const mentors: Mentor[] = [
     hourlyRate: 350,
     tier: "Tier 2",
     tierDescription: "Weekly language improvement - ₹2,400/week",
-    profileImage: "https://images.unsplash.com/photo-1580489944761-15a19d654956?w=150&h=150&fit=crop&crop=face",
-    description: "Published author and literature enthusiast. Helps students develop critical thinking and writing skills through engaging discussions.",
-    specializations: ["Essay Writing", "Poetry Analysis", "Grammar", "CBSE English"],
+    profileImage:
+      "https://images.unsplash.com/photo-1580489944761-15a19d654956?w=150&h=150&fit=crop&crop=face",
+    description:
+      "Published author and literature enthusiast. Helps students develop critical thinking and writing skills through engaging discussions.",
+    specializations: [
+      "Essay Writing",
+      "Poetry Analysis",
+      "Grammar",
+      "CBSE English",
+    ],
     availability: "Daily 6PM-11PM",
-    verified: true
+    verified: true,
   },
   {
     id: "7",
@@ -138,11 +170,13 @@ export const mentors: Mentor[] = [
     hourlyRate: 0,
     tier: "Tier 3",
     tierDescription: "Free 1-hour trial session",
-    profileImage: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&h=150&fit=crop&crop=face",
-    description: "Young and energetic tutor helping students get started with their learning journey. Perfect for trying out our mentorship program.",
+    profileImage:
+      "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&h=150&fit=crop&crop=face",
+    description:
+      "Young and energetic tutor helping students get started with their learning journey. Perfect for trying out our mentorship program.",
     specializations: ["Basic Math", "Science Fundamentals", "Study Planning"],
     availability: "Daily 5PM-8PM",
-    verified: true
+    verified: true,
   },
   {
     id: "8",
@@ -156,11 +190,18 @@ export const mentors: Mentor[] = [
     hourlyRate: 900,
     tier: "Tier 1",
     tierDescription: "Premium all-subject mentorship - ₹14,000/month",
-    profileImage: "https://images.unsplash.com/photo-1559839734-2b71ea197ec2?w=150&h=150&fit=crop&crop=face",
-    description: "Veteran educator with expertise across multiple subjects. Provides comprehensive guidance combining modern teaching with ancient Indian educational wisdom.",
-    specializations: ["All Competitive Exams", "Board Exams", "Concept Building", "Career Guidance"],
+    profileImage:
+      "https://images.unsplash.com/photo-1559839734-2b71ea197ec2?w=150&h=150&fit=crop&crop=face",
+    description:
+      "Veteran educator with expertise across multiple subjects. Provides comprehensive guidance combining modern teaching with ancient Indian educational wisdom.",
+    specializations: [
+      "All Competitive Exams",
+      "Board Exams",
+      "Concept Building",
+      "Career Guidance",
+    ],
     availability: "Mon-Sat 8AM-10PM",
-    verified: true
+    verified: true,
   },
   {
     id: "9",
@@ -174,11 +215,18 @@ export const mentors: Mentor[] = [
     hourlyRate: 400,
     tier: "Tier 2",
     tierDescription: "Weekly math sessions - ₹2,600/week",
-    profileImage: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=150&h=150&fit=crop&crop=face",
-    description: "IIT graduate specializing in making mathematics easy and enjoyable. Uses innovative teaching methods inspired by ancient Indian mathematical traditions.",
-    specializations: ["Vedic Mathematics", "Competitive Math", "Calculus", "Statistics"],
+    profileImage:
+      "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=150&h=150&fit=crop&crop=face",
+    description:
+      "IIT graduate specializing in making mathematics easy and enjoyable. Uses innovative teaching methods inspired by ancient Indian mathematical traditions.",
+    specializations: [
+      "Vedic Mathematics",
+      "Competitive Math",
+      "Calculus",
+      "Statistics",
+    ],
     availability: "Mon-Fri 7PM-10PM",
-    verified: true
+    verified: true,
   },
   {
     id: "10",
@@ -192,17 +240,29 @@ export const mentors: Mentor[] = [
     hourlyRate: 600,
     tier: "Tier 1",
     tierDescription: "Comprehensive science mentorship - ₹16,000/month",
-    profileImage: "https://images.unsplash.com/photo-1559839734-2b71ea197ec2?w=150&h=150&fit=crop&crop=face",
-    description: "Former DRDO scientist turned educator. Combines practical science knowledge with traditional Indian scientific wisdom for holistic learning.",
-    specializations: ["Applied Physics", "Practical Chemistry", "Medical Biology", "Research Methods"],
+    profileImage:
+      "https://images.unsplash.com/photo-1559839734-2b71ea197ec2?w=150&h=150&fit=crop&crop=face",
+    description:
+      "Former DRDO scientist turned educator. Combines practical science knowledge with traditional Indian scientific wisdom for holistic learning.",
+    specializations: [
+      "Applied Physics",
+      "Practical Chemistry",
+      "Medical Biology",
+      "Research Methods",
+    ],
     availability: "Tue-Sat 3PM-8PM",
-    verified: true
+    verified: true,
   },
   {
     id: "11",
     name: "Pawan Sir",
     title: "CSE Mentor",
-    subjects: ["Computer Science Engineering", "Data Structures", "Algorithms", "CSE"],
+    subjects: [
+      "Computer Science Engineering",
+      "Data Structures",
+      "Algorithms",
+      "CSE",
+    ],
     rating: 4.8,
     totalSessions: 780,
     experience: "7 years",
@@ -210,17 +270,24 @@ export const mentors: Mentor[] = [
     hourlyRate: 500,
     tier: "Tier 2",
     tierDescription: "Weekly coding sessions - ₹2,000/week",
-    profileImage: "https://images.unsplash.com/photo-1544723795-3fb6469f5b39?w=150&h=150&fit=crop&crop=face",
-    description: "NIT alumnus and competitive programming coach. Helps students master DS & Algo and ace coding interviews.",
+    profileImage:
+      "https://images.unsplash.com/photo-1544723795-3fb6469f5b39?w=150&h=150&fit=crop&crop=face",
+    description:
+      "NIT alumnus and competitive programming coach. Helps students master DS & Algo and ace coding interviews.",
     specializations: ["DSA", "Operating Systems", "DBMS", "System Design"],
     availability: "Mon-Fri 6PM-10PM",
-    verified: true
+    verified: true,
   },
   {
     id: "12",
     name: "Rawat Sir",
     title: "Mechanical Engineering Mentor",
-    subjects: ["Mechanical Engineering", "Thermodynamics", "SOM", "Fluid Mechanics"],
+    subjects: [
+      "Mechanical Engineering",
+      "Thermodynamics",
+      "SOM",
+      "Fluid Mechanics",
+    ],
     rating: 4.7,
     totalSessions: 650,
     experience: "9 years",
@@ -228,17 +295,28 @@ export const mentors: Mentor[] = [
     hourlyRate: 450,
     tier: "Tier 2",
     tierDescription: "Weekly mechanical sessions - ₹1,800/week",
-    profileImage: "https://images.unsplash.com/photo-1542326237-94b1c5a538d6?w=150&h=150&fit=crop&crop=face",
-    description: "IIT Roorkee graduate with hands-on experience. Simplifies tough mechanical concepts with practical examples.",
-    specializations: ["Thermodynamics", "Strength of Materials", "Heat Transfer"],
+    profileImage:
+      "https://images.unsplash.com/photo-1542326237-94b1c5a538d6?w=150&h=150&fit=crop&crop=face",
+    description:
+      "IIT Roorkee graduate with hands-on experience. Simplifies tough mechanical concepts with practical examples.",
+    specializations: [
+      "Thermodynamics",
+      "Strength of Materials",
+      "Heat Transfer",
+    ],
     availability: "Tue-Sat 7PM-10PM",
-    verified: true
+    verified: true,
   },
   {
     id: "13",
     name: "Anita Verma",
     title: "ECE Mentor",
-    subjects: ["Electronics and Communication", "Signals & Systems", "Digital Electronics", "ECE"],
+    subjects: [
+      "Electronics and Communication",
+      "Signals & Systems",
+      "Digital Electronics",
+      "ECE",
+    ],
     rating: 4.8,
     totalSessions: 820,
     experience: "8 years",
@@ -246,10 +324,12 @@ export const mentors: Mentor[] = [
     hourlyRate: 400,
     tier: "Tier 2",
     tierDescription: "Bi-weekly ECE sessions - ₹1,600/2 weeks",
-    profileImage: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=150&h=150&fit=crop&crop=face",
-    description: "Former Qualcomm engineer turned educator. Focus on fundamentals and problem-solving in ECE.",
+    profileImage:
+      "https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=150&h=150&fit=crop&crop=face",
+    description:
+      "Former Qualcomm engineer turned educator. Focus on fundamentals and problem-solving in ECE.",
     specializations: ["DSP", "Communication Systems", "VLSI Basics"],
     availability: "Mon-Thu 5PM-9PM",
-    verified: true
-  }
+    verified: true,
+  },
 ];

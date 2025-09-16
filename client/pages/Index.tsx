@@ -71,18 +71,18 @@ export default function Index() {
     {
       icon: <Users className="h-8 w-8" />,
       value: "50K+",
-      label: "Indian Students"
+      label: "Indian Students",
     },
     {
       icon: <BookOpen className="h-8 w-8" />,
       value: "500K+",
-      label: "Study Sessions"
+      label: "Study Sessions",
     },
     {
       icon: <Trophy className="h-8 w-8" />,
       value: "94%",
-      label: "Success Rate"
-    }
+      label: "Success Rate",
+    },
   ];
 
   return (
@@ -181,8 +181,8 @@ export default function Index() {
 
             <p className="text-xl text-gray-600 mb-12 max-w-3xl mx-auto leading-relaxed">
               Chanakya helps you understand your study material better with
-              AI-generated summaries, interactive quizzes, flashcards, and expert
-              mentors at affordable Indian pricing.
+              AI-generated summaries, interactive quizzes, flashcards, and
+              expert mentors at affordable Indian pricing.
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-16">
@@ -205,7 +205,6 @@ export default function Index() {
                 <a href="#features">Explore Features</a>
               </Button>
             </div>
-
           </div>
         </div>
       </section>
@@ -222,9 +221,7 @@ export default function Index() {
                 <div className="text-3xl font-bold text-gray-900 mb-2">
                   {stat.value}
                 </div>
-                <div className="text-gray-600 font-medium">
-                  {stat.label}
-                </div>
+                <div className="text-gray-600 font-medium">{stat.label}</div>
               </div>
             ))}
           </div>
@@ -232,18 +229,20 @@ export default function Index() {
       </section>
 
       {/* Features Section */}
-      <section
-        className="py-20 bg-gray-50 relative"
-        id="features"
-      >
-        <div className={"absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg width=\"40\" height=\"40\" viewBox=\"0 0 40 40\" xmlns=\"http://www.w3.org/2000/svg\"%3E%3Cg fill=\"%23ffffff\" fill-opacity=\"0.3\"%3E%3Cpath d=\"M20 20c0 0 0-8 0-8s8 0 8 0 0 8 0 8-8 0-8 0z\"/%3E%3C/g%3E%3C/svg%3E')] opacity-20"}></div>
+      <section className="py-20 bg-gray-50 relative" id="features">
+        <div
+          className={
+            'absolute inset-0 bg-[url(\'data:image/svg+xml,%3Csvg width="40" height="40" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg"%3E%3Cg fill="%23ffffff" fill-opacity="0.3"%3E%3Cpath d="M20 20c0 0 0-8 0-8s8 0 8 0 0 8 0 8-8 0-8 0z"/%3E%3C/g%3E%3C/svg%3E\')] opacity-20'
+          }
+        ></div>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold text-gray-900 mb-4">
               Everything You Need to Excel
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Chanakya combines ancient wisdom with cutting-edge AI to help you master any subject with personalized learning
+              Chanakya combines ancient wisdom with cutting-edge AI to help you
+              master any subject with personalized learning
             </p>
           </div>
 
@@ -273,8 +272,8 @@ export default function Index() {
                   <Card className="border-0 shadow-lg hover:shadow-xl transition-all duration-300 bg-white cursor-pointer transform hover:scale-105">
                     <CardHeader className="text-center pb-4">
                       <div className="w-16 h-16 bg-gradient-to-br from-gray-600 to-gray-800 rounded-xl flex items-center justify-center mx-auto mb-4 text-white">
-                    {feature.icon}
-                  </div>
+                        {feature.icon}
+                      </div>
                       <CardTitle className="text-xl font-bold text-gray-900">
                         {feature.title}
                       </CardTitle>
@@ -363,8 +362,8 @@ export default function Index() {
             Ready to Transform Your Study Experience?
           </h2>
           <p className="text-xl text-gray-200 mb-10 leading-relaxed">
-            Join thousands of Indian students who are already using Chanakya to excel
-            in their studies
+            Join thousands of Indian students who are already using Chanakya to
+            excel in their studies
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button
@@ -399,7 +398,8 @@ export default function Index() {
               </span>
             </div>
             <div className="text-sm text-gray-400">
-              © 2024 Chanakya. Empowering Indian students with ancient wisdom & modern AI.
+              © 2024 Chanakya. Empowering Indian students with ancient wisdom &
+              modern AI.
             </div>
           </div>
         </div>
