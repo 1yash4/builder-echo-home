@@ -522,7 +522,7 @@ export default function Login() {
                 >
                   {isSignUp
                     ? "Already have an account? Sign In"
-                    : "New to StudyGenie? Create Account"}
+                    : "New to Chanakya? Create Account"}
                 </Button>
               </div>
 
